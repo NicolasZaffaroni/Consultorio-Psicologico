@@ -1,0 +1,57 @@
+.container-fluid{
+    width: 100%;
+}
+
+
+.container_redes{
+    width: 100%;
+    margin-right: 50px;
+    margin-top: 5px;
+    padding: 15px;
+    font-size: 20px;
+    text-align: right;
+    border-bottom: 1px solid  #528a79 ;
+    display: flex;
+    justify-content:right;
+
+}
+.container_redes a{
+    text-decoration: underline;
+    color: #20c997;
+
+}
+
+
+.bi-facebook{
+    margin: 5px;
+}
+
+.bi-instagram{
+    margin: 5px;
+}
+
+
+.bi-linkedin{
+    margin: 5px;
+}
+
+.navbar-toggler{
+    color: #528a79;
+}
+
+.offcanvas-body{
+    background-color: #528a79;
+    color: white;
+}
+
+
+.nav-link{
+    color: white;
+
+}
+
+
+
+.dropdown-menu{
+    background-color: #528a79
+}
