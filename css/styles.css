@@ -115,6 +115,18 @@
   background-color: #528a79;
 }
 
+.bi-instagram:hover {
+  color: #000000;
+}
+
+.bi-facebook:hover {
+  color: #000000;
+}
+
+.bi-linkedin:hover {
+  color: #000000;
+}
+
 @media screen and (max-width: 768px) {
   .carousel-item {
     height: 100vh;
