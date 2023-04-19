@@ -4,12 +4,11 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
-  font-family: "Montserrat", sans-serif;
-  font-family: "Oswald", sans-serif;
+  font-family: "Lora", serif;
 }
 
 .carousel-item {
-  height: 80vh;
+  height: 100vh;
   min-height: 300px;
   background: no-repeat scroll center scroll;
   background-size: cover;
@@ -34,13 +33,15 @@
 }
 
 .carousel-caption h5 {
-  font-size: 100px;
+  font-size: 80px;
   font-weight: 700;
 }
 
 .carousel-caption p {
-  font-size: 18px;
+  font-size: 30px;
+  font-weight: 500;
   top: 2rem;
+  font-family: "Dancing Script", cursive;
 }
 
 .slider-btn {
@@ -48,7 +49,7 @@
 }
 
 .slider-btn .btn-1 {
-  background-color: #528a79;
+  background-color: #000;
   color: #fff;
   border-radius: 0;
   padding: 1.5rem 2rem;
@@ -75,12 +76,12 @@
 }
 
 .btn-3 {
-  background-color: #528a79;
+  background-color: #000;
   color: #fff;
   font-size: 20px;
   font-weight: 500;
   border-width: 2px;
-  border-color: #528a79;
+  border-color: #000;
   padding: 10px;
   margin-top: 10px;
 }
@@ -95,7 +96,7 @@
   font-weight: 800;
   text-align: left;
   text-decoration: none;
-  color: #528a79;
+  color: #000;
   position: relative;
   box-shadow: 0 3px 10px -2px rgba(0, 0, 0, 0.2) !important;
   border-radius: 0;
@@ -134,7 +135,7 @@
 }
 
 .accordion-button:not(.collapsed) {
-  color: #528a79;
+  color: #000;
   background: #fff;
   border: none;
 }
@@ -150,7 +151,7 @@
 .heading {
   font-size: 100px;
   font-weight: 700;
-  color: #528a79;
+  color: #000;
 }
 
 .link-thumbnail {
@@ -175,10 +176,11 @@
   margin-bottom: 10px;
 }
 
+/*COMETARIO---EN LA SECCION DE TALLERES MAXIMO 3 LINEAS DE TEXTO IDEAL 2*/
 .link-thumbnail .bi-calendar-plus {
   position: absolute;
   transition: 0.3 all ease;
-  top: 50%;
+  top: 40%;
   font-size: 28px;
   color: #fff;
   left: 50%;
@@ -240,6 +242,33 @@
   visibility: visible;
 }
 
+.container_wave {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #4895ef;
+  overflow: hidden;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-image: url(../assets/Imagenes/Imagenes-Index/wave.png);
+  background-size: 1000px 100px;
+  animation: wave 10s linear infinite;
+}
+
+@keyframes wave {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
+}
 .container-fluid {
   width: 100%;
 }
@@ -251,14 +280,19 @@
   padding: 15px;
   font-size: 20px;
   text-align: right;
-  border-bottom: 1px solid #528a79;
+  border-top: 1px solid #fff;
   display: flex;
-  justify-content: right;
+  justify-content: left;
 }
 
 .container_redes a {
   text-decoration: underline;
-  color: #20c997;
+  color: #fff;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
 }
 
 .bi-facebook {
@@ -274,11 +308,11 @@
 }
 
 .navbar-toggler {
-  color: #528a79;
+  color: #634102;
 }
 
 .offcanvas-body {
-  background-color: #528a79;
+  background-color: #634102;
   color: white;
 }
 
@@ -287,7 +321,7 @@
 }
 
 .dropdown-menu {
-  background-color: #528a79;
+  background-color: wheat;
 }
 
 .bi-instagram:hover {

@@ -10,17 +10,20 @@
     padding: 15px;
     font-size: 20px;
     text-align: right;
-    border-bottom: 1px solid  #528a79 ;
+    border-top: 1px solid #fff ;
     display: flex;
-    justify-content:right;
+    justify-content:left;
 
 }
 .container_redes a{
     text-decoration: underline;
-    color: #20c997;
+    color: #fff;
 
 }
-
+.logo{
+    height: 50px;
+    width: 50px;
+}
 
 .bi-facebook{
     margin: 5px;
@@ -36,11 +39,11 @@
 }
 
 .navbar-toggler{
-    color: #528a79;
+    color: #634102;
 }
 
 .offcanvas-body{
-    background-color: #528a79;
+    background-color: #634102;
     color: white;
 }
 
@@ -53,7 +56,7 @@
 
 
 .dropdown-menu{
-    background-color: #528a79
+    background-color: wheat;
 }
 
 

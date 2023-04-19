@@ -4,12 +4,16 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
-    font-family: 'Montserrat', sans-serif;
-    font-family: 'Oswald', sans-serif;
+    
+    
+    font-family: 'Lora', serif;
+    
+
+    
 }
 
 .carousel-item{
-    height: 80vh;
+    height: 100vh;
     min-height: 300px;
     background: no-repeat scroll center scroll ;
     -webkit-background-size:cover ;
@@ -38,14 +42,16 @@
 }
 
 .carousel-caption h5{
-    font-size: 100px;
+    font-size: 80px;
     font-weight: 700;
 }
 
 
 .carousel-caption p {
-    font-size: 18px;
+    font-size: 30px;
+    font-weight: 500;
     top:2rem ;
+    font-family: 'Dancing Script', cursive;
 }
 
 .slider-btn{
@@ -53,7 +59,7 @@
 }
 
 .slider-btn .btn-1 {
-    background-color: #528a79;
+    background-color: #000;
     color: #fff;
     border-radius: 0;
     padding:  1.5rem 2rem;
@@ -85,12 +91,12 @@
     font-weight: 500;
 }
 .btn-3 {
-    background-color: #528a79;
+    background-color:#000;
     color: #fff;
     font-size: 20px;
     font-weight: 500;
     border-width: 2px;
-    border-color:#528a79 ;
+    border-color:#000 ;
     padding: 10px;
     margin-top: 10px;
 }
@@ -111,7 +117,7 @@
     font-weight: 800;
     text-align: left;
     text-decoration: none;
-    color: #528a79;
+    color: #000;
     position: relative;
     -webkit-box-shadow: 0 3px 10px -2px rgba(0,0,0,0.2)!important;
     box-shadow: 0 3px 10px -2px rgba(0,0,0,0.2)!important;
@@ -161,7 +167,7 @@
 }
 
 .accordion-button:not(.collapsed){
-    color: #528a79;
+    color: #000;
     background: #fff;
     border: none;
 
@@ -172,14 +178,17 @@
 
 
 
+
+
 .border-t{
     border-top: 1px solid #f8f8f8;
+
 }
 
 .heading{
     font-size: 100px;
     font-weight: 700;
-    color: #528a79;
+    color: #000;
 }
 
 
@@ -209,14 +218,14 @@
     margin-bottom: 10px;
 
 }
-
+/*COMETARIO---EN LA SECCION DE TALLERES MAXIMO 3 LINEAS DE TEXTO IDEAL 2*/
 
 .link-thumbnail .bi-calendar-plus{
     position: absolute;
     -webkit-transition:  .3s all ease;
     -o-transition: .3s all ease;
     transition: .3 all ease;
-    top: 50%;
+    top: 40%;
     font-size: 28px;
     color: #fff;
     left: 50%;
@@ -288,4 +297,35 @@
 .link-thumbnail:hover::before{
     opacity: 1;
     visibility: visible;
+}
+
+
+.container_wave{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #4895ef ;
+    overflow: hidden;
+}
+
+.wave{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-image: url(../assets/Imagenes/Imagenes-Index/wave.png);
+    background-size: 1000px 100px;
+    animation:wave 10s linear infinite;
+}
+
+
+@keyframes wave{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: 1000px;
+
+    }
 }
