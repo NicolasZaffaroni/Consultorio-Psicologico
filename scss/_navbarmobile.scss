@@ -1,3 +1,7 @@
+
+@media screen  and (max-width: 768px ){
+
+
 .container-fluid{
     width: 100%;
 }
@@ -32,41 +36,38 @@
 
 .bi-facebook{
     margin: 5px;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .bi-instagram{
-    font-size: 30px;
+    font-size: 20px;
     margin: 5px;
 }
 
 
 .bi-linkedin{
-    font-size: 30px;
+    font-size: 20px;
     margin:5px;
 }
 
 .navbar-toggler{
-    background: #bdc3c7;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    color: white;
+    font-size: 1rem;
+    background: #bdc3c7;
+    color: whitesmoke;
 }
 
 .offcanvas-body{
     background: #bdc3c7;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: white;
 }
 
 .offcanvas-title {
-    font-size: 40px;
+    font-size: 30px;
 
 }
 .nav-link{
     color:#fff;
-    font-size: 20px;
+    font-size: 16px;
 
 
 }
@@ -74,7 +75,7 @@
 
 
 .dropdown-menu{
-    background-color: wheat;
+    background-color:#fff;
 }
 
 
@@ -90,4 +91,6 @@
 
 .bi-linkedin:hover{
     color: #000000;
+}
+
 }

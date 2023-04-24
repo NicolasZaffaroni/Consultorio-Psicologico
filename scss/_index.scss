@@ -11,6 +11,9 @@
 
     
 }
+html{
+    scroll-behavior: smooth;
+}
 
 .carousel-item{
     height: 100vh;
@@ -182,6 +185,7 @@
 
 .border-t{
     border-top: 1px solid #f8f8f8;
+    ;
 
 }
 
@@ -329,3 +333,5 @@
 
     }
 }
+
+

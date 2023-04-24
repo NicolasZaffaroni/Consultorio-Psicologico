@@ -7,6 +7,10 @@
   font-family: "Lora", serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .carousel-item {
   height: 100vh;
   min-height: 300px;
@@ -280,7 +284,7 @@
   padding: 15px;
   font-size: 20px;
   text-align: right;
-  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
   display: flex;
   justify-content: left;
 }
@@ -290,6 +294,11 @@
   color: #fff;
 }
 
+.offcanvas-title {
+  font-family: "Dancing Script", cursive;
+  font-weight: 800;
+}
+
 .logo {
   height: 50px;
   width: 50px;
@@ -297,27 +306,38 @@
 
 .bi-facebook {
   margin: 5px;
+  font-size: 30px;
 }
 
 .bi-instagram {
+  font-size: 30px;
   margin: 5px;
 }
 
 .bi-linkedin {
+  font-size: 30px;
   margin: 5px;
 }
 
 .navbar-toggler {
-  color: #634102;
+  background: #bdc3c7; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
 }
 
 .offcanvas-body {
-  background-color: #634102;
+  background: #bdc3c7; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
+}
+
+.offcanvas-title {
+  font-size: 40px;
 }
 
 .nav-link {
   color: #fff;
+  font-size: 20px;
 }
 
 .dropdown-menu {
@@ -338,8 +358,8 @@
 
 @media screen and (max-width: 768px) {
   .carousel-item {
-    height: 80vh;
-    min-height: 300px;
+    height: 80vw;
+    min-height: 250px;
     background: no-repeat scroll center scroll;
     background-size: cover;
   }
@@ -355,35 +375,281 @@
     opacity: 0.7;
   }
   .carousel-caption {
-    bottom: 1vw;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    bottom: 3rem;
+    padding-left: 3vw;
+    padding-right: 3vw;
   }
   .carousel-caption h5 {
-    font-size: 5vw;
+    font-size: 4vw;
     font-weight: 1000;
   }
   .carousel-caption p {
-    font-size: 18px;
-    top: 2rem;
+    font-size: 16px;
+    top: 1rem;
+    bottom: 1rem;
   }
   .slider-btn {
-    margin-top: 30px;
+    margin-top: 20px;
   }
   .slider-btn .btn-1 {
-    background-color: #528a79;
+    background-color: #000;
     color: #fff;
     border-radius: 0;
-    padding: 1.5rem 2rem;
-    font-size: 1rem;
-    margin: 15px;
+    padding: 0.5rem 1rem;
+    font-size: 16px;
+    margin-bottom: 10px;
   }
   .slider-btn .btn-2 {
     background-color: #fff;
     color: #000;
     border-radius: 0;
-    padding: 1.5rem 2rem;
+    padding: 0.5rem 1rem;
     font-size: 1rem;
-    margin: 15px;
+    margin-bottom: 10px;
+  }
+  .section {
+    padding: 8em 0;
+  }
+  .mb-4 {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .btn-3 {
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    border-width: 2px;
+    border-color: #000;
+    padding: 5px;
+    margin-top: 5px;
+  }
+  .accordion-item {
+    font-size: 1rem;
+  }
+  .accordion-item h2 button {
+    display: block;
+    font-size: 16px;
+    font-weight: 800;
+    text-align: left;
+    text-decoration: none;
+    color: #000;
+    position: relative;
+    box-shadow: 0 3px 10px -2px rgba(0, 0, 0, 0.2) !important;
+    border-radius: 0;
+  }
+  .bi-chevron-down {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-180deg);
+    transition: 0.3s all ease;
+  }
+  .accordion-item h2 button:hover {
+    text-decoration: none;
+    box-shadow: 0 3px 10px -2px rgba(0, 0, 0, 0.2) !important;
+  }
+  .accordion-item h2 button .collapsed {
+    color: #000;
+  }
+  .collapsed .bi-chevron-down {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .accordion-item h2 button .collapsed:hover {
+    text-decoration: none;
+    box-shadow: 0 3px 10px -2px rgba(0, 0, 0, 0.2) !important;
+  }
+  .accordion-item .accordion-body {
+    padding-top: 20px;
+  }
+  .accordion-button:not(.collapsed) {
+    color: #000;
+    background: #fff;
+    border: none;
+  }
+  .accordion-button:focus {
+    border-color: #fff;
+  }
+  .border-t {
+    border-top: 1px solid #f8f8f8;
+  }
+  .heading {
+    font-size: 65px;
+    font-weight: 700;
+    color: #000;
+  }
+  .link-thumbnail {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 30px;
+    text-decoration: none;
+  }
+  .link-thumbnail img {
+    position: relative;
+    transition: 0.3s all ease;
+  }
+  .link-thumbnail .date {
+    display: block;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  /*COMETARIO---EN LA SECCION DE TALLERES MAXIMO 3 LINEAS DE TEXTO IDEAL 2*/
+  .link-thumbnail .bi-calendar-plus {
+    position: absolute;
+    transition: 0.3 all ease;
+    top: 29%;
+    font-size: 25px;
+    color: #fff;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    margin-top: 30px;
+    z-index: 4;
+  }
+  .link-thumbnail h3 {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    color: #fff;
+    font-size: 16px;
+    transition: 0.3 all ease;
+    z-index: 10;
+    left: 50%;
+    display: block;
+    width: 77%;
+    transform: translateX(-50%);
+  }
+  .link-thumbnail::before {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3 all ease;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    z-index: 2;
+  }
+  .link-thumbnail:hover h3 {
+    opacity: 1;
+    visibility: visible;
+    bottom: 20px;
+  }
+  .link-thumbnail:hover img {
+    transform: scale(1.1);
+  }
+  .link-thumbnail:hover .bi-calendar-plus {
+    opacity: 1;
+    visibility: visible;
+    margin-top: 0px;
+  }
+  .link-thumbnail:hover::before {
+    opacity: 1;
+    visibility: visible;
+  }
+  .container_wave {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: none;
+    overflow: hidden;
+  }
+  .wave {
+    position: absolute;
+    bottom: 100px;
+    top: 245px;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-image: url(../assets/Imagenes/Imagenes-Index/wave.png);
+    background-size: 900px 100px;
+    animation: wave 10s linear infinite;
+  }
+  @keyframes wave {
+    0% {
+      background-position-x: 0;
+    }
+    100% {
+      background-position-x: 1000px;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .container-fluid {
+    width: 100%;
+  }
+  .container_redes {
+    width: 100%;
+    margin-right: 50px;
+    margin-top: 5px;
+    padding: 15px;
+    font-size: 20px;
+    text-align: right;
+    border-bottom: 1px solid #fff;
+    display: flex;
+    justify-content: left;
+  }
+  .container_redes a {
+    text-decoration: underline;
+    color: #fff;
+  }
+  .offcanvas-title {
+    font-family: "Dancing Script", cursive;
+    font-weight: 800;
+  }
+  .logo {
+    height: 50px;
+    width: 50px;
+  }
+  .bi-facebook {
+    margin: 5px;
+    font-size: 20px;
+  }
+  .bi-instagram {
+    font-size: 20px;
+    margin: 5px;
+  }
+  .bi-linkedin {
+    font-size: 20px;
+    margin: 5px;
+  }
+  .navbar-toggler {
+    font-size: 1rem;
+    background: #bdc3c7;
+    color: whitesmoke;
+  }
+  .offcanvas-body {
+    background: #bdc3c7; /* fallback for old browsers */
+    color: white;
+  }
+  .offcanvas-title {
+    font-size: 30px;
+  }
+  .nav-link {
+    color: #fff;
+    font-size: 16px;
+  }
+  .dropdown-menu {
+    background-color: #fff;
+  }
+  .bi-instagram:hover {
+    color: #000000;
+  }
+  .bi-facebook:hover {
+    color: #000000;
+  }
+  .bi-linkedin:hover {
+    color: #000000;
   }
 }/*# sourceMappingURL=styles.css.map */
