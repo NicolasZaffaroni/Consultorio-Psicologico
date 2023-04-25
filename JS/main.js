@@ -287,6 +287,70 @@ for(let i=1 ; i <=10; i++){
 
 
 
+//comandos  alt+1=||    fn+{=`` &&(y) ||(o) 5>4--mayor  5<6---menor  != (diferente)
+/*
 
 
+ESTRUCTURA DE FUNCION
+function Pedido(){---------definir funcion
+    let comida =prompt("Que desean para comer?");------- CODIGO 
+    let beber = prompt("Que desean para beber?");
+    let orden_final=`Los comensales desean para comer ${comida} y para beber ${beber}`
+    alert(orden_final);
+}
+
+Pedido(); ---------- EJECUTAR FUNCION
+*/
+
+/*FUNCION CON PARAMETROS 
+function desayuno (fruta,infusion){
+    let pedido =`El pedido de fruta es ${fruta} y para beber${infusion}`;
+    alert(pedido);
+} 
+let fruta = prompt("Que fruta desea ?");
+let infusion = prompt("Que infusion le apetece?");
+
+desayuno(fruta,infusion);*/
+
+
+//comandos  alt+1=||    fn+{=`` &&(y) ||(o) 5>4--mayor  5<6---menor  != (diferente)
+
+/*EJERCICIOS DE CLASE
+function verdadero_falso(numero) {
+    if(numero % 2 === 1 )
+        return alert("false")
+    else if (numero %2 ===0) {
+        return alert("True")
+    } else {
+        return alert("Vuelva a ingresar un numero");
+    }
+} ;
+let numero = parseInt(prompt("ingrese un numero"));
+
+
+verdadero_falso(numero);
+*/
+
+
+
+
+/* EJERCICIOS DE CLASE
+function Datos(edad,nombre){
+    let dato2=`Su edad es  ${edad} y su nombre ${nombre}`;
+    return alert(dato2);
+} 
+let edad = prompt("Que edad tiene ?");
+let nombre = prompt("Como es su nombre?");
+
+Datos(edad,nombre); */
+
+
+/*FUNCION ARROW 
+POST FLECHA RETORNA IMPLICITAMENTE SIN TENER QUE USAR EL RETURN  Y LOS {}
+
+const suma = (a, b)=>{
+    return a + b;
+};
+
+console.log(suma(20,20));*/
 
