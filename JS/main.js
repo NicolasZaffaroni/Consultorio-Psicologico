@@ -23,7 +23,7 @@ Consultorio(Consultorio_Fibra,consulta_p, consulta_o, consulta_pj);
 
 
 
-/*let Taller= prompt("Que Taller le interesa cononcer informacion? indique la misma con las letras A,Ñ,E, y para finalizar #");
+let Taller= prompt("Que Taller le interesa cononcer informacion? indique la misma con las letras A,Ñ,E, y para finalizar #");
 
 let resultado = 0
 
@@ -48,4 +48,4 @@ while(Taller !="#")
         alert("ingrese de nuevo alguna de las 3 silabas para solicitar informacion , recuerde que A---ADULTOS,Ñ------NIÑOS,E---EMPRESAS ")
 }
 
-    Taller= prompt("Que Taller le interesa cononcer informacion? indique la misma con las letras A,Ñ,E, y para finalizar #"); }*/
+    Taller= prompt("Que Taller le interesa cononcer informacion? indique la misma con las letras A,Ñ,E, y para finalizar #"); }
