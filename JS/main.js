@@ -513,7 +513,7 @@ const sesion1 = new sesion(tipo_sesion, duracion , valor, problematicatratar);*/
 
 
 const dia = prompt(" Espacio Fibra a tiende de Lunes a Viernes indique que día será más conveniente para usted");
-dia.toUpperCase();
+
 const horario =  parseInt(prompt(" Espacio fibra atiende de 15hs a 20hs indique que franja horaria en términos de una hora le convendría, ej-- 19 "));
 
 const  modalidad = prompt("Que tipo de sesión le convendría espaxio fibra pose dos modalidades Online y presencial");
@@ -522,10 +522,15 @@ const confirmar = prompt (`  Desea confirmar la cita para el ${dia} en horario $
 
 
 function calendario (dia , horario , modalidad,confirmar){
-    if ( dia ==="SABADO"|| dia === "DOMINGO"){ 
+    modalidad.toUpperCase();
+    dia.toUpperCase();
+    if ( dia ==="sabado"|| dia === "domingo"){ 
         return alert("Los fines de semana Espacio Fibra permanece cerrado");}       
     else if ( horario <15 || horario >20 ){
         return alert("El horario disponible para seleccionar una cita es de 15 a 20hs");}
+    else if ( modalidad !== "online" && modalidad !== "presencial"){
+        return alert("Disculpas, solo ofrecemos dos modalidades: online o presencial.");
+    }
     else if(confirmar === "no" ){
         return alert("Si precisa algún tipo de cita personalizada vaya al apartado contacto y un asesor se pondrá en contacto con usted para una atención mas ");}
     else{
