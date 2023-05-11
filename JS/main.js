@@ -27,7 +27,7 @@ alert(Sesion1);
 
 
 
-class Paciente{
+/*class Paciente{
     constructor(informacion_paciente){
     this.nombre = informacion_paciente.nombre;
     this.apellido = informacion_paciente.apellido;
@@ -36,40 +36,51 @@ class Paciente{
     this.horario = informacion_paciente.horario ;
 }
 ;}
-const nombre = prompt("Indique su nombre ?");
-
-const apellido = prompt ("Cual es su apellido ?");
-
-let dia = prompt(" Espacio Fibra a tiende de Lunes a Viernes indique que día será más conveniente para usted");
-const dias  = ["Lunes",'Martes','Miercoles','Jueves','Viernes'];
-
-const horario =  parseInt(prompt(" Espacio fibra atiende de 15hs a 20hs indique que franja horaria en términos de una hora le convendría, ej-- 19 "));
-const modalidad = prompt("Que tipo de sesión le convendría espaxio fibra pose dos modalidades Online y presencial");
-
-
-const confirmar = prompt (`  Desea confirmar la cita para el ${dia} en horario ${horario} y modalidad ${modalidad}, a nombre de ${nombre} ${apellido} ? `);
-
-
-
-
-function calendario(){
-    while( dias.indexOf(dia)=== -1){
-        return dia = prompt(" Los dias sabado y domingo Espacio Fibra permanecera, cerrado, por favor vuelva a ingresar un dia de lunes a viernes");}       
-    while( horario <15 || horario >20 ){
-        alert("El horario disponible para seleccionar una cita es de 15 a 20hs");}
-    if (modalidad !== "online"  ||  modalidad !== "presencial") {
-            return alert("Lo sentimos, solo ofrecemos dos modalidades: online o presencial.");}
-    else if(confirmar === "no" ){
-        return alert("Entendido. Si desea solicitar una cita personalizada, por favor contáctenos a través del formulario de contacto. ¡Gracias por considerarnos!");}
-    else{ 
-            alert( ` Gracias, por confiar en Espacio Fibra, ${nombre} ${apellido}, el dia seleccionado es ${dia}, en el horario ${horario} y la modalidad sera ${modalidad},`)
-            ;}
-
-}
-
-
-
 const paciente1 = new Paciente(nombre, apellido, dia,horario,modalidad);
+*/
+
+
+
+
+
+const nombre = prompt("Ingrese su nombre?");
+
+
+const apellido = prompt("Ingrese su apellido?");
+
+let tipoSesion= prompt("Espacio Fibra, posee dos modalidades de sesion, Presencial y Online, ingrese cual desea");
+while ( tipoSesion !== "presencial" && tipoSesion!=="online "){
+    tipoSesion = prompt("Modalidad no valida. Por favor ingresar presencial u online. ").toLocaleLowerCase();
+}
+const turno = prompt("Espacio Fibra, esta abierto de cara al publico de Lunes a Viernes, ingrese el dia que desea");
+
+let horario = parseInt(prompt("Espacio Fibra Tiene una disponibilidad horario de 15 a 21 hs, ingrese el horario que prefiere EJ---19"));
+while(horario <15 || horario >20){
+    horario = parseInt(prompt("El horario ingresado no es valido, por favor ingresar un horario entre las 15 y las 21 horas por favor "));
+}
+const confirmar = prompt (`  Desea confirmar la cita para el ${turno} en horario ${horario} y modalidad ${tipoSesion}, a nombre de ${nombre} ${apellido} ? `);
+
+const diasHabiles = ['lunes','martes','miercoles','jueves','viernes'];
+
+
+function cita (){
+    if(tipoSesion ===  "presencial" || " online"){
+        return alert(`La modalidad seleccionada es ${tipoSesion}`);
+    }
+    else if ( horario <21 || horario >15 ){
+        return alert(`El horario elegido es ${horario}`);
+    }
+
+    else if ( diasHabiles.includes(turno.toLocaleLowerCase())){
+        return alert("El dia seleccionado, no es valido. Espacio Fibra solo esta abierto de Lunes a Viernes")
+    }
+
+    else{ 
+        alert( ` Gracias, por confiar en Espacio Fibra, ${nombre} ${apellido}, el dia seleccionado es ${turno}, en el horario ${horario} y la modalidad sera ${tipoSesion},`);}
+
+};
+
+cita ();
 
 
 
@@ -77,7 +88,20 @@ const paciente1 = new Paciente(nombre, apellido, dia,horario,modalidad);
 
 
 
-calendario();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
