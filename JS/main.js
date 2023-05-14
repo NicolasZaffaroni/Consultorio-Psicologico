@@ -27,68 +27,213 @@ alert(Sesion1);
 
 
 
-/*class Paciente{
-    constructor(informacion_paciente){
-    this.nombre = informacion_paciente.nombre;
-    this.apellido = informacion_paciente.apellido;
-    this.modalidad = informacion_paciente.modalidad ;
-    this.dia = informacion_paciente.dia;
-    this.horario = informacion_paciente.horario ;
+//CREAR PACIENTE 
+class Paciente{
+    constructor(nombre,apellido,tipoSesion,turno,horario){
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.tipoSesion = tipoSesion ;
+    this.turno = turno;
+    this.horario = horario ;
 }
 ;}
-const paciente1 = new Paciente(nombre, apellido, dia,horario,modalidad);
-*/
+
+//Pacientes existentes (OBJETOS)
+const pacienteZaragoza = new Paciente( "jose","zaragoza", "online","lunes",15);
+const pacienteCatamarca = new Paciente( "carlos","catamarca", "presencial", "martes",15);
+const pacienteGala = new Paciente("sofia", "gala", "presencial","miercoles",16);
+const pacienteDuro = new Paciente("arturo", "duro","online", "jueves",17);
+const pacienteQuito = new Paciente( "esteban","quito", "presencial","lunes",20);
+const pacienteLoca = new Paciente("juana", "loca", "online", "martes",17);
+const pacienteRodriguez = new Paciente("nicolas", "rodriguez","presencial","jueves",15);
+const pacienteCambaceres = new Paciente("miguel", "cambaceres","presencial","miercoles",20);
+const pacienteRioja = new Paciente("emma", "rioja", "online","lunes",17);
+const pacienteCamilin = new Paciente("camila", "camilin", "online", "viernes",16);
+
+
+
+
+//Lista de Pacientes Vacia (ARRAYS)
+const pacientes =[];
+
+//Subida de pacientes a la lista (OBJETOS, SUMADOS AL ARRAY MEDIANTE METODO PUSH)
+pacientes.push(pacienteZaragoza);
+pacientes.push(pacienteCatamarca);
+pacientes.push(pacienteGala);
+pacientes.push(pacienteDuro);
+pacientes.push(pacienteQuito);
+pacientes.push(pacienteLoca);
+pacientes.push(pacienteRodriguez);
+pacientes.push(pacienteCambaceres);
+pacientes.push(pacienteRioja);
+pacientes.push(pacienteCamilin);
+
+
+//CHEQUEO DE QUE LOS OBJETOS ESTEN BIEN 
+console.log(pacientes);
 
 
 
 
 
-const nombre = prompt("Ingrese su nombre?");
 
 
-const apellido = prompt("Ingrese su apellido?");
-
-let tipoSesion= prompt("Espacio Fibra, posee dos modalidades de sesion, Presencial y Online, ingrese cual desea");
-while ( tipoSesion !== "presencial" && tipoSesion!=="online "){
-    tipoSesion = prompt("Modalidad no valida. Por favor ingresar presencial u online. ").toLocaleLowerCase();
+function menu() {
+    alert('Bienvenido a Espacio Fibra ');
+    let opcion = parseInt(
+    prompt(
+        'Ingrese una opción: 1)Nuevo turno  \n 2) Cancelacion de turno \n 3) Modificación de turno \n 4) Consulta su turno \n 5) Salir'
+    )
+    );
+    return opcion;
 }
-const turno = prompt("Espacio Fibra, esta abierto de cara al publico de Lunes a Viernes, ingrese el dia que desea");
+
+
+// FUNCION PARA NUEVO PACIENTE(OBJETO )
+function nuevoTurno(){
+let nombre = prompt("Ingrese su nombre?");
+let apellido = prompt("Ingrese su apellido?");
+let tipoSesion= prompt("Espacio Fibra, posee dos modalidades de sesion, Presencial y Online, ingrese cual desea");
+while ( tipoSesion !== "presencial" && tipoSesion!=="online"(tipoSesion.toLocaleLowerCase())){
+    tipoSesion = prompt("Modalidad no valida. Por favor ingresar presencial u online. ");
+}
+let  diasHabiles = ['lunes','martes','miercoles','jueves','viernes'];
+let turno = prompt("Espacio Fibra, esta abierto de cara al publico de Lunes a Viernes, ingrese el dia que desea");
+while( diasHabiles.includes(turno.toLocaleLowerCase())){
+    turno = prompt("Espacio Fibra, esta abierto de cara al publico de Lunes a Viernes, ingrese el dia que desea");
+}//Preguntar por que no me funciona el includes
 
 let horario = parseInt(prompt("Espacio Fibra Tiene una disponibilidad horario de 15 a 21 hs, ingrese el horario que prefiere EJ---19"));
 while(horario <15 || horario >20){
     horario = parseInt(prompt("El horario ingresado no es valido, por favor ingresar un horario entre las 15 y las 21 horas por favor "));
+    
 }
-const confirmar = prompt (`  Desea confirmar la cita para el ${turno} en horario ${horario} y modalidad ${tipoSesion}, a nombre de ${nombre} ${apellido} ? `);
-
-const diasHabiles = ['lunes','martes','miercoles','jueves','viernes'];
-
-
-function cita (){
-    if(tipoSesion ===  "presencial" || " online"){
-        return alert(`La modalidad seleccionada es ${tipoSesion}`);
-    }
-    else if ( horario <21 || horario >15 ){
-        return alert(`El horario elegido es ${horario}`);
-    }
-
-    else if ( diasHabiles.includes(turno.toLocaleLowerCase())){
-        return alert("El dia seleccionado, no es valido. Espacio Fibra solo esta abierto de Lunes a Viernes")
-    }
-
+let confirmar = prompt (`  Desea confirmar la cita para el ${dia} en horario ${horario} y modalidad ${modalidad}, a nombre de ${nombre} ${apellido} ? `);
+    if(confirmar === "no" ){
+        return alert("Entendido. Si desea solicitar una cita personalizada, por favor contáctenos a través del formulario de contacto. ¡Gracias por considerarnos!");}
     else{ 
-        alert( ` Gracias, por confiar en Espacio Fibra, ${nombre} ${apellido}, el dia seleccionado es ${turno}, en el horario ${horario} y la modalidad sera ${tipoSesion},`);}
+            alert( ` Gracias, por confiar en Espacio Fibra, ${nombre} ${apellido}, el dia seleccionado es ${dia}, en el horario ${horario} y la modalidad sera ${modalidad},`)
+            ;}
 
-};
-
-cita ();
-
-
-
-
+let paciente = new Paciente(nombre,apellido,tipoSesion,turno,horario);
+pacientes.push(paciente);
+console.log(pacientes);
+}
 
 
 
 
+function  cancelacionTurno() {
+    apellido = prompt('Ingrese su apellido, por favor ');
+    while ( pacientes.includes(apellido.toLocaleLowerCase())){
+        apellido = prompt('Ese apellido, no se encuentra en nuesta base de datos. Ingrese su apellido, nuevamente por favor ');
+    }
+    let paciente = pacientes.find((paciente) => paciente.apellido === apellido); 
+    indice = pacientes.indexOf(paciente); 
+    pacientes.splice(indice, 1); 
+    if (paciente){
+        let mensaje = `
+        Estimado ${paciente.nombre}
+        Su turno del dia :${paciente.turno} 
+        En la Modalidad: ${paciente.tipoSesion}
+        En el horario ${paciente.horario}
+        Fue cancelado, esperamos poder volver a brindarle nuevamente un turno.
+        `
+        alert (mensaje)};
+    console.log(pacientes);
+}
+
+
+//Función para modificar   un turno:
+
+function modificacionTurno() {
+    apellido = prompt('Ingrese su apellido, por favor ');
+    while ( pacientes.includes(apellido.toLocaleLowerCase())){
+        apellido = prompt('Ese apellido, no se encuentra en nuesta base de datos. Ingrese su apellido, nuevamente por favor ');
+    }
+    let paciente = pacientes.find((paciente) => paciente.apellido === apellido); 
+    indice = pacientes.indexOf(paciente); 
+    let nombre = prompt("Ingrese su nombre?");
+    let apellido = prompt("Ingrese su apellido?");
+    let tipoSesion= prompt("Espacio Fibra, posee dos modalidades de sesion, Presencial y Online, ingrese cual desea");
+while ( tipoSesion !== "presencial" && tipoSesion!=="online"(tipoSesion.toLocaleLowerCase())){
+    tipoSesion = prompt("Modalidad no valida. Por favor ingresar presencial u online. ");
+}
+let  diasHabiles = ['lunes','martes','miercoles','jueves','viernes'];
+let turno = prompt("Espacio Fibra, esta abierto de cara al publico de Lunes a Viernes, ingrese el dia que desea");
+while( diasHabiles.includes(turno.toLocaleLowerCase())){
+    turno = prompt("Espacio Fibra, esta abierto de cara al publico de Lunes a Viernes, ingrese el dia que desea");
+}
+
+let horario = parseInt(prompt("Espacio Fibra Tiene una disponibilidad horario de 15 a 21 hs, ingrese el horario que prefiere EJ---19"));
+while(horario <15 || horario >20){
+    horario = parseInt(prompt("El horario ingresado no es valido, por favor ingresar un horario entre las 15 y las 21 horas por favor ")); }
+
+    let confirmar = prompt (`  Desea confirmar la cita para el ${dia} en horario ${horario} y modalidad ${modalidad}, a nombre de ${nombre} ${apellido} ? `);
+
+    if(confirmar === "no" ){
+        return alert("Entendido. Si desea solicitar una cita personalizada, por favor contáctenos a través del formulario de contacto. ¡Gracias por considerarnos!");}
+    else{ 
+            alert( ` Gracias, por confiar en Espacio Fibra, ${nombre} ${apellido}, el dia seleccionado es ${dia}, en el horario ${horario} y la modalidad sera ${modalidad},`)
+            ;}
+
+    let pacienteModificado = new Paciente(nombre, apellido, tipoSesion, turno,horario);
+    pacientes.splice(indice, 1, pacienteModificado); 
+    console.log(pacientes);
+}
+
+  //Función para consultar un turno:
+
+function consultaTurno() {
+    apellido = prompt('Ingrese su apellido, por favor ');
+    while ( pacientes.includes(apellido.toLocaleLowerCase())){
+        apellido = prompt('Ese apellido, no se encuentra en nuesta base de datos. Ingrese su apellido, nuevamente por favor ');
+    }
+    let paciente = pacientes.find((paciente) => paciente.apellido === apellido); 
+    if (paciente){
+        let mensaje = `
+        Estimado ${paciente.nombre}
+        Su turno es el dia :${paciente.turno}
+        En la Modalidad: ${paciente.tipoSesion}
+        En el horario ${paciente.horario}
+        `
+        alert (mensaje)};
+}
+
+  //Función para salir del programa:
+
+function finalizar() {
+    alert('Gracias por Confiar en Espacio Fibra');
+}
+
+
+
+
+
+
+
+
+let opcion = menu();
+switch (opcion) {
+case 1:
+    nuevoTurno();
+    break;
+case 2:
+    cancelacionTurno();
+    break;
+case 3:
+    modificacionTurno();
+    break;
+case 4:
+    consultaTurno();
+    break;
+case 5:
+    finalizar();
+    break;
+default:
+    alert('Opción incorrecta');
+    break;
+}
 
 
 
@@ -108,20 +253,6 @@ cita ();
 
 
 
-
-/*const pacientes =[
-
-    {nombre: "jose", apellido:"zaragoza", dia:"lunes", horario:"15hs", modalidad:"online"},
-    {nombre: "carlos", apellido:"catamarca", dia:"martes", horario:"14hs", modalidad:"presencial"},
-    {nombre: "sofia", apellido:"gala", dia:"miercoles", horario:"16hs", modalidad:"presencial"},
-    {nombre: "arturo", apellido:"duro", dia:"jueves", horario:"19hs", modalidad:"online"},
-    {nombre: "esteban", apellido:"quito", dia:"lunes", horario:"20hs", modalidad:"presencial"},
-    {nombre: "camila", apellido:"camilin", dia:"viernes", horario:"16hs", modalidad:"online"},
-    {nombre: "juana", apellido:"loca", dia:"martes", horario:"17hs", modalidad:"online"},
-    {nombre: "nicolas", apellido:"rodriguez", dia:"jueves", horario:"15hs", modalidad:"presencial"},
-    {nombre: "miguel", apellido:"cambaceres", dia:"miercoles", horario:"20hs", modalidad:"presencial"},
-    {nombre: "emma", apellido:"rioja", dia:"lunes", horario:"17hs", modalidad:"online"},
-];
 
 
 
