@@ -51,7 +51,7 @@ console.log(pacientes);
 
 
 
-
+//MENU CON OPCIONES 
 
 function menu() {
     alert('Bienvenido a Espacio Fibra ');
@@ -97,12 +97,9 @@ console.log(pacientes);
 
 
 
-
+// Cancelar turno 
 function  cancelacionTurno() {
     let apellido = prompt('Ingrese su apellido, por favor ');
-    while ( pacientes.includes(apellido)){
-        apellido = prompt('Ese apellido, no se encuentra en nuesta base de datos. Ingrese su apellido, nuevamente por favor ');
-    }
     let paciente = pacientes.find((paciente) => paciente.apellido === apellido); 
     indice = pacientes.indexOf(paciente); 
     pacientes.splice(indice, 1); 
@@ -124,9 +121,6 @@ function  cancelacionTurno() {
 
 function modificacionTurno() {
     let apellido = prompt('Ingrese su apellido, por favor ');
-    while ( pacientes.includes(apellido)){
-        apellido = prompt('Ese apellido, no se encuentra en nuesta base de datos. Ingrese su apellido, nuevamente por favor ');
-    }
     let paciente = pacientes.find((paciente) => paciente.apellido === apellido); 
     indice = pacientes.indexOf(paciente); 
     let nombre = prompt("Ingrese su nombre?");
@@ -163,9 +157,6 @@ while(horario <15 || horario >20){
 
 function consultaTurno() {
     let apellido = prompt('Ingrese su apellido, por favor ');
-    while ( pacientes.includes(apellido)){
-        apellido = prompt('Ese apellido, no se encuentra en nuesta base de datos. Ingrese su apellido, nuevamente por favor ');
-    }
     let paciente = pacientes.find((paciente) => paciente.apellido === apellido); 
     if (paciente){
         let mensaje = `
@@ -188,10 +179,9 @@ function finalizar() {
 
 
 
-
+//MENU 
 
 let opcion = menu();
-while(menu !=5) { 
 switch (opcion) {
 case 1:
     nuevoTurno();
@@ -212,8 +202,8 @@ default:
     alert('Opción incorrecta');
     break;
 }
-opcion = menu();
-}
+
+
 
 
 
