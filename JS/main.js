@@ -75,7 +75,7 @@ while ( tipoSesion !== "presencial" && tipoSesion!=="online"){
 let  diasDescanso = ['sabado','domingo'];
 let turno = prompt("Espacio Fibra, esta abierto de cara al publico de Lunes a Viernes, ingrese el dia que desea");
 while( diasDescanso.includes(turno)){
-    turno = prompt("Espacio Fibra, esta abierto de cara al publico de Lunes a Viernes, ingrese el dia que desea");
+    turno = prompt("Espacio Fibra, se encuentra cerrado los dias Sabado y Domingo por favor ingrese, un dia de Lunes a Viernes");
 }
 
 let horario = parseInt(prompt("Espacio Fibra Tiene una disponibilidad horario de 15 a 21 hs, ingrese el horario que prefiere EJ---19"));
@@ -99,7 +99,7 @@ console.log(pacientes);
 
 
 function  cancelacionTurno() {
-    apellido = prompt('Ingrese su apellido, por favor ');
+    let apellido = prompt('Ingrese su apellido, por favor ');
     while ( pacientes.includes(apellido)){
         apellido = prompt('Ese apellido, no se encuentra en nuesta base de datos. Ingrese su apellido, nuevamente por favor ');
     }
@@ -123,14 +123,14 @@ function  cancelacionTurno() {
 //Función para modificar   un turno:
 
 function modificacionTurno() {
-    apellido = prompt('Ingrese su apellido, por favor ');
+    let apellido = prompt('Ingrese su apellido, por favor ');
     while ( pacientes.includes(apellido)){
         apellido = prompt('Ese apellido, no se encuentra en nuesta base de datos. Ingrese su apellido, nuevamente por favor ');
     }
     let paciente = pacientes.find((paciente) => paciente.apellido === apellido); 
     indice = pacientes.indexOf(paciente); 
     let nombre = prompt("Ingrese su nombre?");
-    let apellido = prompt("Ingrese su apellido?");
+    apellido = prompt("Ingrese su apellido?");
     let tipoSesion= prompt("Espacio Fibra, posee dos modalidades de sesion, Presencial y Online, ingrese cual desea");
 while ( tipoSesion !== "presencial" && tipoSesion!=="online"(tipoSesion)){
     tipoSesion = prompt("Modalidad no valida. Por favor ingresar presencial u online. ");
@@ -138,7 +138,7 @@ while ( tipoSesion !== "presencial" && tipoSesion!=="online"(tipoSesion)){
 let  diasDescanso = ['sabado','domingo'];
 let turno = prompt("Espacio Fibra, esta abierto de cara al publico de Lunes a Viernes, ingrese el dia que desea");
 while( diasDescanso.includes(turno)){
-    turno = prompt("Espacio Fibra, esta abierto de cara al publico de Lunes a Viernes, ingrese el dia que desea");
+    turno = prompt("Espacio Fibra, se encuentra cerrado los dias Sabado y Domingo por favor ingrese, un dia de Lunes a Viernes ");
 }
 
 let horario = parseInt(prompt("Espacio Fibra Tiene una disponibilidad horario de 15 a 21 hs, ingrese el horario que prefiere EJ---19"));
@@ -162,7 +162,7 @@ while(horario <15 || horario >20){
   //Función para consultar un turno:
 
 function consultaTurno() {
-    apellido = prompt('Ingrese su apellido, por favor ');
+    let apellido = prompt('Ingrese su apellido, por favor ');
     while ( pacientes.includes(apellido)){
         apellido = prompt('Ese apellido, no se encuentra en nuesta base de datos. Ingrese su apellido, nuevamente por favor ');
     }
