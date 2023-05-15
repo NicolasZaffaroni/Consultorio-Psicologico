@@ -1,29 +1,4 @@
-/*class Terapia{
-    constructor(informacion_sesion){
-    this.id = informacion_sesion.id;
-    this.tiposesion = informacion_sesion.tiposesion ;
-    this.duracion= informacion_sesion.duracion ;
-    this.valor= informacion_sesion.valor;
-    this.problematicatratar= informacion_sesion.problematicatratar;
-    
-}
-modelo(){alert( `Esta es el tipo de sesion ${this.tiposesion},que precisa el paciente ${this.id} la duracion ${this.duracion}, el valor ${this.valor}, y la problematica a tratar ${this.problematicatratar}`);}
-}
-    
 
-const tipo_sesion = prompt("Que tipo de sesion selecciono el paciente? ");
-const duracion = prompt ("Que Tiempo estimado, tiene la sesion ");
-const valor= prompt ("Que valor tiene la terapia");
-const problematicatratar = prompt("Que problematica tiene el paciente");
-const id = prompt("Asignar ID");
-
-const Sesion1 = new Terapia(tipo_sesion, duracion , valor, problematicatratar,id);
-
-
-
-
-alert(Sesion1);
-*/
 
 
 
@@ -82,7 +57,7 @@ function menu() {
     alert('Bienvenido a Espacio Fibra ');
     let opcion = parseInt(
     prompt(
-        'Ingrese una opción: 1)Nuevo turno  \n 2) Cancelacion de turno \n 3) Modificación de turno \n 4) Consulta su turno \n 5) Salir'
+        'Ingrese una opción: 1)Nuevo turno   2) Cancelacion de turno  3) Modificación de turno  4) Consulta su turno  5) Salir'
     )
     );
     return opcion;
@@ -94,25 +69,25 @@ function nuevoTurno(){
 let nombre = prompt("Ingrese su nombre?");
 let apellido = prompt("Ingrese su apellido?");
 let tipoSesion= prompt("Espacio Fibra, posee dos modalidades de sesion, Presencial y Online, ingrese cual desea");
-while ( tipoSesion !== "presencial" && tipoSesion!=="online"(tipoSesion.toLocaleLowerCase())){
+while ( tipoSesion !== "presencial" && tipoSesion!=="online"){
     tipoSesion = prompt("Modalidad no valida. Por favor ingresar presencial u online. ");
 }
-let  diasHabiles = ['lunes','martes','miercoles','jueves','viernes'];
+let  diasDescanso = ['sabado','domingo'];
 let turno = prompt("Espacio Fibra, esta abierto de cara al publico de Lunes a Viernes, ingrese el dia que desea");
-while( diasHabiles.includes(turno.toLocaleLowerCase())){
+while( diasDescanso.includes(turno)){
     turno = prompt("Espacio Fibra, esta abierto de cara al publico de Lunes a Viernes, ingrese el dia que desea");
-}//Preguntar por que no me funciona el includes
+}
 
 let horario = parseInt(prompt("Espacio Fibra Tiene una disponibilidad horario de 15 a 21 hs, ingrese el horario que prefiere EJ---19"));
 while(horario <15 || horario >20){
     horario = parseInt(prompt("El horario ingresado no es valido, por favor ingresar un horario entre las 15 y las 21 horas por favor "));
     
 }
-let confirmar = prompt (`  Desea confirmar la cita para el ${dia} en horario ${horario} y modalidad ${modalidad}, a nombre de ${nombre} ${apellido} ? `);
+let confirmar = prompt (`  Desea confirmar la cita para el ${turno} en horario ${horario} y modalidad ${tipoSesion}, a nombre de ${nombre} ${apellido} ? `);
     if(confirmar === "no" ){
         return alert("Entendido. Si desea solicitar una cita personalizada, por favor contáctenos a través del formulario de contacto. ¡Gracias por considerarnos!");}
     else{ 
-            alert( ` Gracias, por confiar en Espacio Fibra, ${nombre} ${apellido}, el dia seleccionado es ${dia}, en el horario ${horario} y la modalidad sera ${modalidad},`)
+            alert( ` Gracias, por confiar en Espacio Fibra, ${nombre} ${apellido}, el dia seleccionado es ${turno}, en el horario ${horario} y la modalidad sera ${tipoSesion},`)
             ;}
 
 let paciente = new Paciente(nombre,apellido,tipoSesion,turno,horario);
@@ -125,7 +100,7 @@ console.log(pacientes);
 
 function  cancelacionTurno() {
     apellido = prompt('Ingrese su apellido, por favor ');
-    while ( pacientes.includes(apellido.toLocaleLowerCase())){
+    while ( pacientes.includes(apellido)){
         apellido = prompt('Ese apellido, no se encuentra en nuesta base de datos. Ingrese su apellido, nuevamente por favor ');
     }
     let paciente = pacientes.find((paciente) => paciente.apellido === apellido); 
@@ -133,11 +108,12 @@ function  cancelacionTurno() {
     pacientes.splice(indice, 1); 
     if (paciente){
         let mensaje = `
-        Estimado ${paciente.nombre}
+        Estimad@ ${paciente.nombre}
         Su turno del dia :${paciente.turno} 
         En la Modalidad: ${paciente.tipoSesion}
         En el horario ${paciente.horario}
-        Fue cancelado, esperamos poder volver a brindarle nuevamente un turno.
+        Fue cancelado,
+        esperamos poder volver a brindarle nuevamente un turno.
         `
         alert (mensaje)};
     console.log(pacientes);
@@ -148,7 +124,7 @@ function  cancelacionTurno() {
 
 function modificacionTurno() {
     apellido = prompt('Ingrese su apellido, por favor ');
-    while ( pacientes.includes(apellido.toLocaleLowerCase())){
+    while ( pacientes.includes(apellido)){
         apellido = prompt('Ese apellido, no se encuentra en nuesta base de datos. Ingrese su apellido, nuevamente por favor ');
     }
     let paciente = pacientes.find((paciente) => paciente.apellido === apellido); 
@@ -156,43 +132,44 @@ function modificacionTurno() {
     let nombre = prompt("Ingrese su nombre?");
     let apellido = prompt("Ingrese su apellido?");
     let tipoSesion= prompt("Espacio Fibra, posee dos modalidades de sesion, Presencial y Online, ingrese cual desea");
-while ( tipoSesion !== "presencial" && tipoSesion!=="online"(tipoSesion.toLocaleLowerCase())){
+while ( tipoSesion !== "presencial" && tipoSesion!=="online"(tipoSesion)){
     tipoSesion = prompt("Modalidad no valida. Por favor ingresar presencial u online. ");
 }
-let  diasHabiles = ['lunes','martes','miercoles','jueves','viernes'];
+let  diasDescanso = ['sabado','domingo'];
 let turno = prompt("Espacio Fibra, esta abierto de cara al publico de Lunes a Viernes, ingrese el dia que desea");
-while( diasHabiles.includes(turno.toLocaleLowerCase())){
+while( diasDescanso.includes(turno)){
     turno = prompt("Espacio Fibra, esta abierto de cara al publico de Lunes a Viernes, ingrese el dia que desea");
 }
 
 let horario = parseInt(prompt("Espacio Fibra Tiene una disponibilidad horario de 15 a 21 hs, ingrese el horario que prefiere EJ---19"));
 while(horario <15 || horario >20){
-    horario = parseInt(prompt("El horario ingresado no es valido, por favor ingresar un horario entre las 15 y las 21 horas por favor ")); }
-
-    let confirmar = prompt (`  Desea confirmar la cita para el ${dia} en horario ${horario} y modalidad ${modalidad}, a nombre de ${nombre} ${apellido} ? `);
-
-    if(confirmar === "no" ){
-        return alert("Entendido. Si desea solicitar una cita personalizada, por favor contáctenos a través del formulario de contacto. ¡Gracias por considerarnos!");}
-    else{ 
-            alert( ` Gracias, por confiar en Espacio Fibra, ${nombre} ${apellido}, el dia seleccionado es ${dia}, en el horario ${horario} y la modalidad sera ${modalidad},`)
-            ;}
+    horario = parseInt(prompt("El horario ingresado no es valido, por favor ingresar un horario entre las 15 y las 21 horas por favor")); }
 
     let pacienteModificado = new Paciente(nombre, apellido, tipoSesion, turno,horario);
     pacientes.splice(indice, 1, pacienteModificado); 
     console.log(pacientes);
+    if (pacienteModificado){
+        let mensaje = `
+        Estimad@ ${pacienteModificado.nombre}
+        Su nuevo turno es el  dia :${pacienteModificado.turno}
+        En la Modalidad: ${pacienteModificado.tipoSesion}
+        En en el nuevo horario de ${pacienteModificado.horario}
+        `
+        alert (mensaje)};
 }
+
 
   //Función para consultar un turno:
 
 function consultaTurno() {
     apellido = prompt('Ingrese su apellido, por favor ');
-    while ( pacientes.includes(apellido.toLocaleLowerCase())){
+    while ( pacientes.includes(apellido)){
         apellido = prompt('Ese apellido, no se encuentra en nuesta base de datos. Ingrese su apellido, nuevamente por favor ');
     }
     let paciente = pacientes.find((paciente) => paciente.apellido === apellido); 
     if (paciente){
         let mensaje = `
-        Estimado ${paciente.nombre}
+        Estimad@ ${paciente.nombre}
         Su turno es el dia :${paciente.turno}
         En la Modalidad: ${paciente.tipoSesion}
         En el horario ${paciente.horario}
@@ -214,6 +191,7 @@ function finalizar() {
 
 
 let opcion = menu();
+while(menu !=5) { 
 switch (opcion) {
 case 1:
     nuevoTurno();
@@ -233,6 +211,8 @@ case 5:
 default:
     alert('Opción incorrecta');
     break;
+}
+opcion = menu();
 }
 
 

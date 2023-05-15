@@ -557,3 +557,30 @@ tipo_sesion (Pacientes_Online.join(modalidad),Pacientes_Presencial.join(modalida
     }
 };
 */
+
+/*class Terapia{
+    constructor(informacion_sesion){
+    this.id = informacion_sesion.id;
+    this.tiposesion = informacion_sesion.tiposesion ;
+    this.duracion= informacion_sesion.duracion ;
+    this.valor= informacion_sesion.valor;
+    this.problematicatratar= informacion_sesion.problematicatratar;
+    
+}
+modelo(){alert( `Esta es el tipo de sesion ${this.tiposesion},que precisa el paciente ${this.id} la duracion ${this.duracion}, el valor ${this.valor}, y la problematica a tratar ${this.problematicatratar}`);}
+}
+    
+
+const tipo_sesion = prompt("Que tipo de sesion selecciono el paciente? ");
+const duracion = prompt ("Que Tiempo estimado, tiene la sesion ");
+const valor= prompt ("Que valor tiene la terapia");
+const problematicatratar = prompt("Que problematica tiene el paciente");
+const id = prompt("Asignar ID");
+
+const Sesion1 = new Terapia(tipo_sesion, duracion , valor, problematicatratar,id);
+
+
+
+
+alert(Sesion1);
+*/
