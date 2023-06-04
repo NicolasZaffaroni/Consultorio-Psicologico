@@ -584,3 +584,432 @@ const Sesion1 = new Terapia(tipo_sesion, duracion , valor, problematicatratar,id
 
 alert(Sesion1);
 */
+
+
+let boton = document.getElementById("boton");
+
+const respuesta = () => {
+    console.log("click");
+};
+
+let evento = document.createElement("button");
+boton.addEventListener(evento,subir);
+
+const subir = () =>{
+    document.body.subir = 0;
+    document.documentElement.subir = 0;
+
+}
+
+
+
+//MENU CON OPCIONES 
+
+function menu() {
+    alert('Bienvenido a Espacio Fibra ');
+    let opcion = parseInt(
+    prompt(
+        'Ingrese una opción: 1)Nuevo turno   2) Cancelacion de turno  3) Modificación de turno  4) Consulta su turno  5) Salir'
+    )
+    );
+    return opcion;
+}
+
+
+// FUNCION PARA NUEVO PACIENTE(OBJETO )
+function nuevoTurno(){
+let nombre = prompt("Ingrese su nombre?");
+let apellido = prompt("Ingrese su apellido?");
+let tipoSesion= prompt("Espacio Fibra, posee dos modalidades de sesion, Presencial y Online, ingrese cual desea");
+while ( tipoSesion !== "presencial" && tipoSesion!=="online"){
+    tipoSesion = prompt("Modalidad no valida. Por favor ingresar presencial u online. ");
+}
+let  diasDescanso = ['sabado','domingo'];
+let turno = prompt("Espacio Fibra, esta abierto de cara al publico de Lunes a Viernes, ingrese el dia que desea");
+while( diasDescanso.includes(turno)){
+    turno = prompt("Espacio Fibra, se encuentra cerrado los dias Sabado y Domingo por favor ingrese, un dia de Lunes a Viernes");
+}
+
+let horario = parseInt(prompt("Espacio Fibra Tiene una disponibilidad horario de 15 a 21 hs, ingrese el horario que prefiere EJ---19"));
+while(horario <15 || horario >20){
+    horario = parseInt(prompt("El horario ingresado no es valido, por favor ingresar un horario entre las 15 y las 21 horas por favor "));
+    
+}
+let confirmar = prompt (`  Desea confirmar la cita para el ${turno} en horario ${horario} y modalidad ${tipoSesion}, a nombre de ${nombre} ${apellido} ? `);
+    if(confirmar === "no" ){
+        return alert("Entendido. Si desea solicitar una cita personalizada, por favor contáctenos a través del formulario de contacto. ¡Gracias por considerarnos!");}
+    else{ 
+            alert( ` Gracias, por confiar en Espacio Fibra, ${nombre} ${apellido}, el dia seleccionado es ${turno}, en el horario ${horario} y la modalidad sera ${tipoSesion},`)
+            ;}
+
+let paciente = new Paciente(nombre,apellido,tipoSesion,turno,horario);
+pacientes.push(paciente);
+console.log(pacientes);
+}
+
+
+
+// Cancelar turno 
+function  cancelacionTurno() {
+    let apellido = prompt('Ingrese su apellido, por favor ');
+    let paciente = pacientes.find((paciente) => paciente.apellido === apellido); 
+    indice = pacientes.indexOf(paciente); 
+    pacientes.splice(indice, 1); 
+    if (paciente){
+        let div = document.createElement("div");
+        div.innerHTML=`
+        <h2 class="titulo">Estimad@ ${paciente.nombre}</h2>
+        <li class="mensaje">Su turno del dia: ${paciente.turno}</li>
+        <li class="mensaje">En la Modalidad: ${paciente.tipoSesion}</li>
+        <li class="mensaje">En el horario: ${paciente.horario}</li>
+        <li class="mensaje">Fue cancelado,esperamos poder volver a brindarle nuevamente un turno.</li>
+        ` 
+        contenedorMensaje.append(div);
+        };
+    console.log(pacientes);
+}
+
+
+//Función para modificar   un turno:
+
+function modificacionTurno() {
+    let apellido = prompt('Ingrese su apellido, por favor ');
+    let paciente = pacientes.find((paciente) => paciente.apellido === apellido); 
+    indice = pacientes.indexOf(paciente); 
+    let nombre = prompt("Ingrese su nombre?");
+    apellido = prompt("Ingrese su apellido?");
+    let tipoSesion= prompt("Espacio Fibra, posee dos modalidades de sesion, Presencial y Online, ingrese cual desea");
+while ( tipoSesion !== "presencial" && tipoSesion!=="online"(tipoSesion)){
+    tipoSesion = prompt("Modalidad no valida. Por favor ingresar presencial u online. ");
+}
+let  diasDescanso = ['sabado','domingo'];
+let turno = prompt("Espacio Fibra, esta abierto de cara al publico de Lunes a Viernes, ingrese el dia que desea");
+while( diasDescanso.includes(turno)){
+    turno = prompt("Espacio Fibra, se encuentra cerrado los dias Sabado y Domingo por favor ingrese, un dia de Lunes a Viernes ");
+}
+
+let horario = parseInt(prompt("Espacio Fibra Tiene una disponibilidad horario de 15 a 21 hs, ingrese el horario que prefiere EJ---19"));
+while(horario <15 || horario >20){
+    horario = parseInt(prompt("El horario ingresado no es valido, por favor ingresar un horario entre las 15 y las 21 horas por favor")); }
+
+    let pacienteModificado = new Paciente(nombre, apellido, tipoSesion, turno,horario);
+    pacientes.splice(indice, 1, pacienteModificado); 
+    console.log(pacientes);
+    if (pacienteModificado){
+        let contenedorMensaje= document.getElementById("contenedorMensaje")
+
+        let div = document.createElement("div");
+        div.innerHTML= `
+        <h2 class="titulo">Estimad@ ${pacienteModificado.nombre}</h2>
+        <li class ="mensaje">Su nuevo turno es el  dia : ${pacienteModificado.turno}</li>
+        <li class ="mensaje">En la Modalidad: ${pacienteModificado.tipoSesion}</li>
+        <li class ="mensaje">En en el nuevo horario de ${pacienteModificado.horario}</li>
+        `;
+        contenedorMensaje.append(div)
+        };
+}
+
+
+  //Función para consultar un turno:
+
+function consultaTurno() {
+    let apellido = prompt('Ingrese su apellido, por favor ');
+    let paciente = pacientes.find((paciente) => paciente.apellido === apellido); 
+    if (paciente){
+        let contenedorMensaje= document.getElementById("contenedorMensaje")
+
+        let div = document.createElement("div");
+        div.innerHTML = `
+        <h2 class="titulo">Estimad@ ${paciente.nombre}</h2>
+        <li class ="mensaje">Su turno es el dia :${paciente.turno}</li>
+        <li class ="mensaje">En la Modalidad: ${paciente.tipoSesion}</li>
+        <li class ="mensaje">En el horario ${paciente.horario}</li>
+        `
+        contenedorMensaje.append(div)};
+}
+
+  //Función para salir del programa:
+
+function finalizar() {
+    alert('Gracias por Confiar en Espacio Fibra');
+}
+
+
+
+
+
+
+//MENU 
+
+let opcion = menu();
+switch (opcion) {
+case 1:
+    nuevoTurno();
+    break;
+case 2:
+    cancelacionTurno();
+    break;
+case 3:
+    modificacionTurno();
+    break;
+case 4:
+    consultaTurno();
+    break;
+case 5:
+    finalizar();
+    break;
+default:
+    alert('Opción incorrecta');
+    break;
+}
+
+
+//BOTON VOLVER A INICIO CON EVENT
+/*let boton = document.getElementById("boton");
+const subir = () =>{
+    document.documentElement.scrollTop = 0;
+}
+boton.addEventListener("click",subir);*/
+
+
+
+let formulario = document.getElementById("formulario");
+
+
+formulario.addEventListener("submit",(e) =>{
+    e.preventDefault();
+    let inputs = e.target.children;
+    let = nombre = inputs.localStorage.getItem("nombre");
+    let = apellido = inputs.localStorage.getItem("apellido");
+    let = tipoSesion = inputs.localStorage.getItem("tipoSesion");
+    let = turno = inputs.localStorage.getItem("turno");
+    let = horario= inputs.localStorage.getItem("horario");
+    console.log(inputs)
+});
+
+
+
+
+
+
+
+/*
+//CREAR PACIENTE 
+class Paciente{
+    constructor(nombre,apellido,tipoSesion,turno,horario){
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.tipoSesion = tipoSesion ;
+    this.turno = turno;
+    this.horario = horario ;
+}
+;}
+
+//Pacientes existentes (OBJETOS)
+const pacienteZaragoza = new Paciente( "jose","zaragoza", "online","lunes",15);
+const pacienteCatamarca = new Paciente( "carlos","catamarca", "presencial", "martes",15);
+const pacienteGala = new Paciente("sofia", "gala", "presencial","miercoles",16);
+const pacienteDuro = new Paciente("arturo", "duro","online", "jueves",17);
+const pacienteQuito = new Paciente( "esteban","quito", "presencial","lunes",20);
+const pacienteLoca = new Paciente("juana", "loca", "online", "martes",17);
+const pacienteRodriguez = new Paciente("nicolas", "rodriguez","presencial","jueves",15);
+const pacienteCambaceres = new Paciente("miguel", "cambaceres","presencial","miercoles",20);
+const pacienteRioja = new Paciente("emma", "rioja", "online","lunes",17);
+const pacienteCamilin = new Paciente("camila", "camilin", "online", "viernes",16);
+
+
+
+
+//Lista de Pacientes Vacia (ARRAYS)
+const pacientes =[];
+
+//Subida de pacientes a la lista (OBJETOS, SUMADOS AL ARRAY MEDIANTE METODO PUSH)
+pacientes.push(pacienteZaragoza);
+pacientes.push(pacienteCatamarca);
+pacientes.push(pacienteGala);
+pacientes.push(pacienteDuro);
+pacientes.push(pacienteQuito);
+pacientes.push(pacienteLoca);
+pacientes.push(pacienteRodriguez);
+pacientes.push(pacienteCambaceres);
+pacientes.push(pacienteRioja);
+pacientes.push(pacienteCamilin);
+
+
+//CHEQUEO DE QUE LOS OBJETOS ESTEN BIEN 
+console.log(pacientes); */
+
+
+
+
+/*
+let pacienteGala ={
+    nombre :"sofia",
+    apellido:"gala",
+    tipoSesion :"presencial",
+    turno:"miercoles",
+    horario :16,
+} ;
+
+let pacienteDuro ={
+    nombre :"arturo",
+    apellido:"duro",
+    tipoSesion :"online",
+    turno:"jueves",
+    horario :17,
+};
+let pacienteQuito ={
+    nombre :"esteban",
+    apellido:"quito",
+    tipoSesion :"presencial",
+    turno:"lunes",
+    horario :20,
+};
+
+//SUBO PACIENTES A MI ARRAY 
+const pacientes =[];
+pacientes.push(pacienteGala);
+pacientes.push(pacienteDuro);
+pacientes.push(pacienteQuito);
+
+
+//AHORA SUBO CADA OBJETO(PACIENTE) AL LOCALSTORAGE CONVERTIDO EN DATO JSON
+localStorage.setItem("pacienteGala", JSON.stringify(pacienteGala));
+localStorage.setItem("pacienteDuro", JSON.stringify(pacienteDuro));
+localStorage.setItem("pacienteQuito", JSON.stringify(pacienteQuito));
+*//*
+const turnos =[{
+    nombre :"esteban",
+    apellido:"quito",
+    tipoSesion :"presencial",
+    turno:"lunes",
+    horario :20,
+},
+{
+    nombre :"sofia",
+    apellido:"gala",
+    tipoSesion :"presencial",
+    turno:"miercoles",
+    horario :16,
+},
+{
+    nombre :"arturo",
+    apellido:"duro",
+    tipoSesion :"online",
+    turno:"jueves",
+    horario :17,
+}
+];
+
+//SUMO MI ARRAY DE PACIENTES AL LOCALSTORAGE CONVETIDO EN DATO JSON 
+let consultasStorage = localStorage.setItem("pacientes", JSON.stringify(turnos));
+
+
+
+
+let botonModifica = document.getElementById("modificar");
+let botonElimina = document.getElementById("botonElimina");
+let pacientes = [];
+let pacientesStorage = localStorage.getItem("pacientes")
+
+if (pacientesStorage){
+    pacientes = JSON.parse(pacientesStorage);
+}
+else{ 
+
+let div = document.createElement("div");
+div.innerHTML = "No hay turnos actualmente, la agenda esta libre"
+document.body.append(div)
+};
+
+
+
+pacientes.forEach(paciente =>{
+    let contenedorMensaje= document.getElementById("contenedorMensaje")
+
+    let div = document.createElement("div");
+    div.innerHTML = `
+    <h2 class="titulo">Estimad@ ${paciente.nombre}</h2>
+    <li class ="mensaje">Su turno es el dia :${paciente.turno}</li>
+    <li class ="mensaje">En la Modalidad: ${paciente.tipoSesion}</li>
+    <li class ="mensaje">En el horario ${paciente.horario}</li>
+    `
+    contenedorMensaje.append(div)});
+
+
+
+    botonElimina.addEventListener("click",() =>{
+    localStorage.clear();
+    alert("turnos eliminados");
+    location.reload();
+});
+
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//forEach para recorrer los array 
+//pacientes.forEach(item =>{
+//    console.log(item) 
+//} );
+
+
+
+
+//find encuentra el primer elemento que cumpla la condición
+/*
+let modalidad= prompt("ingrese la modalidad de su turno");
+const encontrado = pacientes.find(turno => turno.modalidad === modalidad);
+
+if (encontrado) {
+let mensaje = `
+    Nombre: ${encontrado.nombre}
+    Apellido: ${encontrado.apellido}
+    Dia: ${encontrado.dia}
+    Modalidad: ${encontrado.modalidad}
+    Horario: ${encontrado.horario}
+`;
+
+alert(mensaje);
+} else {
+alert("Producto no encontrado");
+}
+
+
+*/
+
+//filter encuentra los elementos que cumplan la condicion dada
+/* EN ESTE EJEMPLO SOLO MUESTRA LOS TURNOS CON LAS MODALIDAD QUE ES INGRESADA POR EL USUARIO
+let modalidad= prompt("ingrese la modalidad de su turno");
+const encontrado = pacientes.filter((turno) => turno.modalidad.includes(modalidad) );
+
+encontrado.forEach ((turno) => {
+let mensaje = `
+    Nombre: ${turno.nombre}
+    Apellido: ${turno.apellido}
+    Dia: ${turno.dia}
+    Modalidad: ${turno.modalidad}
+    Horario: ${turno.horario}
+`;
+
+    alert(mensaje);
+} );
+
+*/

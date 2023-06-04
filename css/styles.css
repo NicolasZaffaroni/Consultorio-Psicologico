@@ -299,6 +299,24 @@ html {
   animation: wave_green 10s linear infinite;
 }
 
+.titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Dancing Script", cursive;
+  font-size: 5rem;
+  font-weight: 1000;
+}
+
+.mensaje {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 500;
+  top: 2rem;
+}
+
 @keyframes wave {
   0% {
     background-position-x: 0;
@@ -394,6 +412,24 @@ html {
 
 .bi-linkedin:hover {
   color: #000000;
+}
+
+.input {
+  max-width: 200px;
+  min-height: 40px;
+  padding: 10px;
+  font-family: "Lora", serif;
+  outline: none;
+  background: #e8e8e8;
+  box-shadow: 5px 5px 17px #c8c8c8, -5px -5px 17px #ffffff;
+  border: none;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+
+.input:focus {
+  background: #e8e8e8;
+  box-shadow: inset 5px 5px 17px #c8c8c8, inset -5px -5px 17px #ffffff;
 }
 
 @media screen and (max-width: 768px) {
