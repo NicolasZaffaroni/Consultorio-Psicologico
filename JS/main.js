@@ -39,8 +39,10 @@ localStorage.setItem("formularios", JSON.stringify(formularios));
 
     localStorage.setItem("formularioNuevo", JSON.stringify(formularioNuevo));
     alert("Su turno fue confirmado");
+    location.reload();
 //COMPROBAR SI TODOS LOS FORMULARIOS ESTAN CARGADOS CORRECTAMENTE EN ARRAY
 console.log(formularios);
+
 });    
 
 

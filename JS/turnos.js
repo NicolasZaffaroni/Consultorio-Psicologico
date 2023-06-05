@@ -7,15 +7,17 @@ botonConsulta.addEventListener("click",() =>{
     let consultaTurno = document.getElementById("apellido")?.value;
     let formularios = [];
     let turnoPactado = localStorage.getItem("formularios");
+    
+
 // SI SE ENCUENTRA SE PASA EL DATO JSON A ARRAY
     if(turnoPactado){
     formularios =  JSON.parse(turnoPactado);
     console.log("entramos1");}
 
+const turnoEncontrado = formularios.some((turno)=>turno.apellido === consultaTurno)
 //CON EL JSON YA HECHO ARRAY SE CREA UN ELEMENTO Y SE MUESTRA EL TURNO CONSULTADO
-    if (formularios.apellido === consultaTurno){
-        console.log("entramos2");
-        formularios.forEach(paciente =>{
+    if (turnoEncontrado){
+        let paciente = formularios.find(paciente =>paciente.apellido===consultaTurno);
             let contenedorMensaje= document.getElementById("contenedorMensaje")
         
             let div = document.createElement("div");
@@ -27,15 +29,16 @@ botonConsulta.addEventListener("click",() =>{
             <li class ="mensaje">Confirmado en la direccion de email ${paciente.email}</li>
             `
             contenedorMensaje.append(div)
-            } ) };
+        }
+    });
 
-//BOTON PARA ELIMINAR EL LOCALSTORAGE
-    botonElimina.addEventListener("click",() =>{
-        localStorage.clear();
-        alert("turno eliminado");
-        location.reload();} ) }) ;
 
-    
+                        //BOTON PARA ELIMINAR EL LOCALSTORAGE
+                        botonElimina.addEventListener("click",() =>{
+                            localStorage.clear();
+                            alert("turno eliminado") })
+
+
 
 
 
