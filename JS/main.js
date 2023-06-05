@@ -1,5 +1,5 @@
 
-//SUBIR FORMULARIO ONLINE
+//DATOS INPUT USUARIO 
 document.getElementById("confirmar").addEventListener("click", () => {
     let nombre = document.getElementById("name").value;
     let apellido = document.getElementById("apellido").value;
@@ -8,20 +8,41 @@ document.getElementById("confirmar").addEventListener("click", () => {
     let sesion = document.getElementById("sesion").value;
     let email = document.getElementById("email").value;
 
-    // SUBIRLO AL LOCAL STORAGE
-    let formulario = {
-    nombre: nombre,
-    apellido: apellido,
-    date: date,
-    horario: horario,
-    sesion:sesion,
-    email: email
-    };
 
-    localStorage.setItem("formulario", JSON.stringify(formulario));
+//GUARDAR FORMULARIO 
+    let formulariosGuardados = localStorage.getItem("formularios");
+
+
+//COMPROBAR SI HAY FORMULARIOS GUARDADOS CON OPERADOR TERNARIO Y CARGAR EN UN ARRAY 
+    let formularios = formulariosGuardados ? JSON.parse(formulariosGuardados):[];
+
+
+
+
+// SUBIRLO AL LOCAL STORAGE
+let formularioNuevo = {
+            nombre: nombre,
+            apellido: apellido,
+            date: date,
+            horario: horario,
+            sesion:sesion,
+            email: email
+            };
+    
+// PUSH A UN ARRAY 
+
+formularios.push(formularioNuevo);
+
+localStorage.setItem("formularios", JSON.stringify(formularios));
+
+
+
+    localStorage.setItem("formularioNuevo", JSON.stringify(formularioNuevo));
     alert("Su turno fue confirmado");
-    location.reload();
-}); 
+//COMPROBAR SI TODOS LOS FORMULARIOS ESTAN CARGADOS CORRECTAMENTE EN ARRAY
+console.log(formularios);
+});    
+
 
 
 
