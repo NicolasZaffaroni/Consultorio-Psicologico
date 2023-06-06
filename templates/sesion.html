@@ -69,30 +69,38 @@
                 </div>
             </nav>
         </div>
-        <H1>Sesion</H1>
+        <H1 class="titulo">Sesion</H1>
             <section >
-                <div class="container-fluid">
-                    <ul>
+                <div class="listaSesion">
+                    <ul >
+                        <br>
                         <li><label for="name">Nombre</label></li>
-                        <input class="input" type="text"id="name" name="name" required>
+                        <li><input class="input" type="text"id="name" name="name" required></li>
                         <br>
                         <li><label for="apellido">Apellido</label></li>
-                        <input class="input" type="text" name="apellido" id="apellido">
-                        <br>
+                        <li><input class="input" type="text" name="apellido" id="apellido" required></li>
+                        <br>     
                         <li><label for="date">Dia</label></li>
-                        <input class="input" type="date" name="date" id="date">
+                        <li><input class="input" type="date" name="date" id="date" value="06-06-2023"
+                        min="2023-06-06" max="2023-12-31" required></li>
                         <br>
-                        <li><label for="horario">Horario</label></li>
-                        <input class="input" type="text" name="horario" id="horario">
+                        <li><label for="horario">Selecciona una hora (sin minutos)</label></li>
+                        <li><input class="input" type="time" name="horario" id="horario"
+                        step="3600" min="14:00" max="20:00" value="14:00" required></li>
                         <br>
-                        <li><label for="sesion">Sesion</label></li>
-                        <input class="input" type="text" name="sesion" id="sesion">
+                        <li><label for="sesion">Selecciona el modo que desees </label></li>
+                        <select>
+                            <option value="Presencial" id="sesion">Presencial</option>
+                            <option value="Online" id="sesion">Online</option>
+                        </select>
+                        <br>
+                        <br>
                         <br>
                         <li><label for="email">Direccion de correo</label></li>
-                        <input class="input" type="email" name="email" id="email">
+                        <li><input class="input" type="email" name="email" id="email" required></li>
                         <br>
                         <br>
-                        <li><input class="input" type="button" id="confirmar" value="confirmar"></li>
+                        <li><input class="input" type="button" id="confirmar" value="Confirmar"></li>
                     </ul>
                 </div>
             </section>

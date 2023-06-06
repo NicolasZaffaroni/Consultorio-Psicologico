@@ -432,6 +432,12 @@ html {
   box-shadow: inset 5px 5px 17px #c8c8c8, inset -5px -5px 17px #ffffff;
 }
 
+.listaSesion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @media screen and (max-width: 768px) {
   .carousel-item {
     height: 80vw;
