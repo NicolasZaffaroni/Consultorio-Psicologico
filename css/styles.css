@@ -333,6 +333,15 @@ html {
     background-position-x: 1000px;
   }
 }
+.turnoConfirmado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 500;
+  top: 2rem;
+}
+
 .container-fluid {
   width: 100%;
 }

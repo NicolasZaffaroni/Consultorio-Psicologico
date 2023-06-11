@@ -1,6 +1,7 @@
 
 //DATOS INPUT USUARIO 
 document.getElementById("confirmar").addEventListener("click", () => {
+
     let nombre = document.getElementById("name").value;
     let apellido = document.getElementById("apellido").value;
     let date = document.getElementById("date").value;
@@ -12,15 +13,12 @@ document.getElementById("confirmar").addEventListener("click", () => {
 //GUARDAR FORMULARIO 
     let formulariosGuardados = localStorage.getItem("formularios");
 
-
 //COMPROBAR SI HAY FORMULARIOS GUARDADOS CON OPERADOR TERNARIO Y CARGAR EN UN ARRAY 
     let formularios = formulariosGuardados ? JSON.parse(formulariosGuardados):[];
 
-
-
-
 // SUBIRLO AL LOCAL STORAGE
 let formularioNuevo = {
+            id : formularios.length + 1,
             nombre: nombre,
             apellido: apellido,
             date: date,
@@ -34,16 +32,27 @@ let formularioNuevo = {
 formularios.push(formularioNuevo);
 
 localStorage.setItem("formularios", JSON.stringify(formularios));
-
-
-
     localStorage.setItem("formularioNuevo", JSON.stringify(formularioNuevo));
-    alert("Su turno fue confirmado");
-    location.reload();
+    
+    if(document.getElementById("sesion").value=="Presencial"||"Online"){
+        let contenedor = document.getElementById("contenedor");
+        
+        let div = document.createElement("div");
+        div.innerHTML= `
+        <p class="turnoConfirmado">Su turno fue confirmado</p>`
+        contenedor.append(div);
+        location.reload()};
+        //AGREGAR PROMESA DE TIEMPO PARA QUE SE RECARGE 5 SEGUNDOS DESPUES Y SE PUEDA VER EL MENSAJE
+        
+
+
+
 //COMPROBAR SI TODOS LOS FORMULARIOS ESTAN CARGADOS CORRECTAMENTE EN ARRAY
 console.log(formularios);
 
 });    
+
+
 
 
 

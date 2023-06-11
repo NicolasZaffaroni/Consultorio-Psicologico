@@ -1,7 +1,7 @@
 
 
 
-
+/*
 /*
 alert("Adivinamos cuantos años Tenes!");
 let año_de_nacimiento = parseInt(prompt("Ingresa tu año de nacimiento"));
@@ -1012,4 +1012,83 @@ let mensaje = `
     alert(mensaje);
 } );
 
-*/
+*//*
+if (turnoEncontrado) {
+    let contenedorMensaje = document.getElementById("contenedorMensaje");
+  
+    let div = document.createElement("div");
+    div.innerHTML = `
+      <h2 class="titulo">Estimad@ ${paciente.nombre}</h2>
+      <li class="mensaje">Su turno es el dia: ${paciente.date}</li>
+      <li class="mensaje">En la Modalidad: ${paciente.sesion}</li>
+      <li class="mensaje">En el horario: ${paciente.horario}</li>
+      <li class="mensaje">Confirmado en el ${paciente.email}</li>
+    `;
+    contenedorMensaje.append(div);
+  
+    let contenedorCancelar = document.getElementById("contenedorCancelar");
+    let botonElimina = document.getElementById("botonElimina");
+  
+    let divCancelar = document.createElement("div");
+    divCancelar.innerHTML = `
+      <label for="cancelar">Cancele su turno !</label>
+      <input type="button" id="botonElimina" class="input" value="Cancelar">
+    `;
+    contenedorCancelar.append(divCancelar);
+  
+    botonElimina.addEventListener("click", () => {
+      localStorage.removeItem(turnoEncontrado);
+      let contenedorTurnocancelado = document.getElementById("contenedorTurnocancelado");
+      let div = document.createElement("div");
+      div.innerHTML = `<p> Turno Cancelado !</p>`;
+      contenedorTurnocancelado.append(div);
+    });
+  } else {
+    let contenedorTurnoninexistente = document.getElementById("contenedorTurno");
+    let div = document.createElement("div");
+    div.innerHTML = `
+      <p>No está cargado ese turno, ve a nuestra sección de sesión y solicita el tuyo o envía tu mensaje por la sección de contacto y a la brevedad lo solucionaremos!</p>
+    `;
+    contenedorTurnoninexistente.append(div);
+  }
+  */
+
+
+
+
+
+
+
+/*let formulario = document.getElementById("formulario");
+
+const nuevoTurno = (nombre , apellido, date, horario, sesion, email) =>{
+let formulariosGuardados = localStorage.getItem("formularios");
+let formularios = formulariosGuardados ? JSON.parse(formulariosGuardados):[];
+
+
+let formularioNuevo = {
+    id: formularios.length + 1,
+    nombre: nombre,
+    apellido: apellido,
+    date: date,
+    horario: horario,
+    sesion:sesion,
+    email: email
+    };
+
+
+    formularios.push(formularioNuevo);
+
+};
+
+formulario.addEventListener("submit",(e)=>{
+    e.preventDefault();
+    let inputs = e.target.children;
+    nuevoTurno(inputs[0].value,inputs[1].value,inputs[2].value,inputs[3].value,inputs[4].value,inputs[5].value,inputs[6].value)
+
+}
+)*/
+
+
+
+
