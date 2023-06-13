@@ -51,30 +51,42 @@ let turnoEncontrado = formularios.some((turno)=>turno.apellido === consultaTurno
                 console.log("entramos2");}
                 turnoEncontrado =  formularios.some((turno)=>turno.apellido ===consultaTurno);
             if (turnoEncontrado){
-                let pacienteCancelado = formularios.find(pacienteCancelado =>pacienteCancelado.apellido===consultaTurno);
-                console.log("entramos3");
-                localStorage.removeItem("formularios");
-                let contenedorTurnocancelado = document.getElementById("contenedorTurnocancelado");
-                let div = document.createElement("div");
-                div.innerHTML = `<h2 class="titulo">Estimad@ ${pacienteCancelado.nombre}</h2>
-                <li class="mensaje">Su turno en el dia: ${pacienteCancelado.date}</li>
-                <li class="mensaje">En la Modalidad: ${pacienteCancelado.sesion}</li>
-                <li class="mensaje">En el horario: ${pacienteCancelado.horario}</li>
-                <li class="mensaje">Confirmado en el ${pacienteCancelado.email}</li>
-                <li class="mensaje">Fue cancelado conn exito, esperamos poder brindarle otro turno o si tiene otro tipo de consulta, hacerla mediante la seccion contacto y en la brevedad, nos comunicaremos con usted!</li>`;
-                contenedorTurnocancelado.append(div)
+                Swal.fire({
+                    title: 'Estas seguro que, quiere cancelar tu turno ?',
+                    text: "Si el turno, es menos de 24hs, se solicitara el abono del mismo!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, quiero cancelarlo!',
+                    
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                    localStorage.removeItem("formulario");
+                    Swal.fire(
+                        'Cancelado!',
+                        'Esperamos poder volver a brindarle, otro turno, en el futuro!.',
+                        'success',
+                        
+                        
+                    )
+                    setInterval("location.reload()",5000);
+                    }
+                })
                 console.log(formularios);
+                
                 ;
                 }});
 //ELSE POR SI NO SE ENCUENTRA EL TURNO 
     } else {
-        let contenedorTurnoninexistente = document.getElementById("contenedorTurnoinexistente");
-        let divTurnoinexistente = document.createElement("div");
-        divTurnoinexistente.innerHTML = `
-        <p>No está cargado ese turno, ve a nuestra sección de sesión y solicita el tuyo o envía tu mensaje por la sección de contacto y a la brevedad lo solucionaremos!</p>
-        `;
-        contenedorTurnoninexistente.append(divTurnoinexistente)
-        location.reload();}//AGREGAR PROMESA PARA QUE SE RECARGUE POST 10 SEGUNDOS.
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No está cargado ese turno, enviamos un mensaje, en nuestra seccion de contacto y  a la brevedad lo solucionaremos!',
+            footer: '<a href="./sesion.html">Solicita tu turno nuevamente!</a>'
+        })
+        
+        setInterval("location.reload()",10000);}//AGREGAR PROMESA PARA QUE SE RECARGUE POST 10 SEGUNDOS.
     
     });
 

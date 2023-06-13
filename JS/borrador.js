@@ -1089,6 +1089,45 @@ formulario.addEventListener("submit",(e)=>{
 }
 )*/
 
+const { DateTime } = luxon;
 
 
 
+// Establece la fecha mínima y máxima permitida
+const today = DateTime.now().toISODate(); // Obtiene la fecha actual en formato ISO (YYYY-MM-DD)
+date.setAttribute('min', today);
+
+// Función para deshabilitar los días no laborables (sábados y domingos)
+function disableNonWorkingDays(event) {
+const selectedDate = DateTime.fromISO(date.value);
+const dayOfWeek = selectedDate.weekday;
+
+if (dayOfWeek >= 6) {
+    event.target.value = ''; // Limpia el valor si se selecciona un día no laborable
+    Swal.fire('Por favor, selecciona un dia de Lunes a Viernes');
+}
+else {
+    date.setCustomValidity('');
+}
+}
+// Agrega el evento 'change' al campo de entrada de fecha
+date.addEventListener('input', disableNonWorkingDays);
+
+
+   Swal.fire({
+                    title: 'Estas seguro que, quiere cancelar tu turno ?',
+                    text: "Si el turno, es menos de 24hs, se solicitara el abono del mismo!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, quiero cancelarlo!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        localStorage.removeItem("formulario")
+                    Swal.fire(
+                        'Cancelado!',
+                        'Esperamos poder volver a brindarle, otro turno, en el futuro!.',
+                        'success'
+                    )
+                    }

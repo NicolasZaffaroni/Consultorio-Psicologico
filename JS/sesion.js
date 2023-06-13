@@ -1,13 +1,20 @@
 
+
 //DATOS INPUT USUARIO 
 document.getElementById("confirmar").addEventListener("click", () => {
 
-    let nombre = document.getElementById("name").value;
-    let apellido = document.getElementById("apellido").value;
-    let date = document.getElementById("date").value;
-    let horario = document.getElementById("horario").value;
-    let sesion = document.getElementById("sesion").value;
-    let email = document.getElementById("email").value;
+    const nombre = document.getElementById("name");
+
+    const apellido = document.getElementById("apellido");
+
+    
+    const  date = document.getElementById("date");
+
+    const  horario = document.getElementById("horario");
+
+    const  sesion = document.getElementById("sesion");
+
+    const  email = document.getElementById("email");
 
 
 //GUARDAR FORMULARIO 
@@ -35,13 +42,16 @@ localStorage.setItem("formularios", JSON.stringify(formularios));
     localStorage.setItem("formularioNuevo", JSON.stringify(formularioNuevo));
     
     if(document.getElementById("sesion").value=="Presencial"||"Online"){
-        let contenedor = document.getElementById("contenedor");
-        
-        let div = document.createElement("div");
-        div.innerHTML= `
-        <p class="turnoConfirmado">Su turno fue confirmado</p>`
-        contenedor.append(div);
-        location.reload()};
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Su turno fue confirmado',
+            showConfirmButton: false,
+            timer: 5000,
+            
+        })
+        setInterval("location.reload()",5000);
+        };
         //AGREGAR PROMESA DE TIEMPO PARA QUE SE RECARGE 5 SEGUNDOS DESPUES Y SE PUEDA VER EL MENSAJE
         
 
