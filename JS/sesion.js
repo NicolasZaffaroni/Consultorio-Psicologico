@@ -3,18 +3,18 @@
 //DATOS INPUT USUARIO 
 document.getElementById("confirmar").addEventListener("click", () => {
 
-    const nombre = document.getElementById("name");
+    const nombre = document.getElementById("name").value;
 
-    const apellido = document.getElementById("apellido");
+    const apellido = document.getElementById("apellido").value;
 
     
-    const  date = document.getElementById("date");
+    const  date = document.getElementById("date").value;
 
-    const  horario = document.getElementById("horario");
+    const  horario = document.getElementById("horario").value;
 
-    const  sesion = document.getElementById("sesion");
+    const  sesion = document.getElementById("sesion").value;
 
-    const  email = document.getElementById("email");
+    const  email = document.getElementById("email").value;
 
 
 //GUARDAR FORMULARIO 
@@ -50,8 +50,7 @@ localStorage.setItem("formularios", JSON.stringify(formularios));
             timer: 5000,
             
         })
-        setInterval("location.reload()",5000);
-        };
+        setInterval("location.reload()",3000);};
         //AGREGAR PROMESA DE TIEMPO PARA QUE SE RECARGE 5 SEGUNDOS DESPUES Y SE PUEDA VER EL MENSAJE
         
 

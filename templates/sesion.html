@@ -83,17 +83,22 @@
                         <li><input class="input" type="text" name="apellido" id="apellido" required></li>
                         <br>     
                         <li><label for="date">Dia</label></li>
-                        <li><input class="input" type="date" name="date" id="date" 
-                        required></li>
+                        <select id="date">
+                            <option value="Lunes" >Lunes</option>
+                            <option value="Martes" >Martes</option>
+                            <option value="Miercoles" >Miercoles</option>
+                            <option value="Jueves" >Jueves</option>
+                            <option value="Viernes" >Viernes</option>
+                        </select>
                         <br>
                         <li><label for="horario">Selecciona una hora (sin minutos)</label></li>
                         <li><input class="input" type="time" name="horario" id="horario"
                         step="3600" min="14:00" max="20:00" value="14:00" required></li>
                         <br>
                         <li><label for="sesion">Selecciona el modo que desees </label></li>
-                        <select>
-                            <option value="Presencial" id="sesion">Presencial</option>
-                            <option value="Online" id="sesion">Online</option>
+                        <select id="sesion">
+                            <option value="Presencial" >Presencial</option>
+                            <option value="Online" >Online</option>
                         </select>
                         <br>
                         <br>

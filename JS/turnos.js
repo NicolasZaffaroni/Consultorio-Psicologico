@@ -31,15 +31,15 @@ let turnoEncontrado = formularios.some((turno)=>turno.apellido === consultaTurno
         contenedorMensaje.append(div);
     
 //CONTENEDOR CON BOTON PARA REMOVER ITEM 
-        //let contenedorCancelar = document.getElementById("contenedorCancelar");
+        let contenedorCancelar = document.getElementById("contenedorCancelar");
         let botonElimina = document.getElementById("botonElimina");
     
-        /*let divCancelar = document.createElement("divCancelar");
+        let divCancelar = document.createElement("divCancelar");
         divCancelar.innerHTML = `
         <label for="cancelar">Cancele su turno !</label>
-        <input type="button" id="botonElimina" class="input" value="Cancelar">
+        <input type="submit" id="botonElimina" class="input" value="Cancelar">
         `;
-        contenedorCancelar.append(divCancelar);*/
+        contenedorCancelar.append(divCancelar);
 //BOTON PARA REMOVER ITEM Y MOSTRAR UN MENSAJE 
 
         botonElimina.addEventListener("click", () => {
@@ -49,8 +49,8 @@ let turnoEncontrado = formularios.some((turno)=>turno.apellido === consultaTurno
             if(turnoPactado){
                 formularios =  JSON.parse(turnoPactado);
                 console.log("entramos2");}
-                turnoEncontrado =  formularios.some((turno)=>turno.apellido ===consultaTurno);
-            if (turnoEncontrado){
+                turnoEncontrado =  formularios.findIndex((turno)=>turno.apellido ===consultaTurno);
+            if (turnoEncontrado !==-1){
                 Swal.fire({
                     title: 'Estas seguro que, quiere cancelar tu turno ?',
                     text: "Si el turno, es menos de 24hs, se solicitara el abono del mismo!",
@@ -62,7 +62,9 @@ let turnoEncontrado = formularios.some((turno)=>turno.apellido === consultaTurno
                     
                 }).then((result) => {
                     if (result.isConfirmed) {
-                    localStorage.removeItem("formulario");
+                    formularios.splice(turnoEncontrado, 1);
+                    console.log("ELIMINADO",formularios);
+                    localStorage.setItem("formularios", JSON.stringify(formularios))
                     Swal.fire(
                         'Cancelado!',
                         'Esperamos poder volver a brindarle, otro turno, en el futuro!.',
@@ -70,7 +72,7 @@ let turnoEncontrado = formularios.some((turno)=>turno.apellido === consultaTurno
                         
                         
                     )
-                    setInterval("location.reload()",5000);
+                    setInterval("location.reload()",3000);
                     }
                 })
                 console.log(formularios);
@@ -86,7 +88,7 @@ let turnoEncontrado = formularios.some((turno)=>turno.apellido === consultaTurno
             footer: '<a href="./sesion.html">Solicita tu turno nuevamente!</a>'
         })
         
-        setInterval("location.reload()",10000);}//AGREGAR PROMESA PARA QUE SE RECARGUE POST 10 SEGUNDOS.
+        setInterval("location.reload()",3000);}//AGREGAR PROMESA PARA QUE SE RECARGUE POST 10 SEGUNDOS.
     
     });
 
