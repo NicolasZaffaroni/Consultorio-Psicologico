@@ -1143,3 +1143,136 @@ date.addEventListener('input', disableNonWorkingDays);
                     <div class="wave_green">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#00cba9" fill-opacity="1" d="M0,160L30,154.7C60,149,120,139,180,133.3C240,128,300,128,360,149.3C420,171,480,213,540,208C600,203,660,149,720,133.3C780,117,840,139,900,170.7C960,203,1020,245,1080,240C1140,235,1200,181,1260,149.3C1320,117,1380,107,1410,101.3L1440,96L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"></path></svg>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+//BOTON PARA CONSULTAR 
+let botonConsulta = document.getElementById("botonConsulta");
+
+
+//BOTON CONSULTA CONSULTA  SI SE ENCUENTRA POR EL VALOR NOMBRE 
+botonConsulta.addEventListener("click",() =>{
+    let consultaTurno = document.getElementById("apellido")?.value;
+    let formularios = [];
+    let turnoPactado = localStorage.getItem("formularios");
+    
+
+
+    
+
+// SI SE ENCUENTRA SE PASA EL DATO JSON A ARRAY
+    if(turnoPactado){
+    formularios =  JSON.parse(turnoPactado);
+    console.log("entramos1");}
+
+let turnoEncontrado = formularios.some((turno)=>turno.apellido === consultaTurno)
+//CON EL JSON YA HECHO ARRAY SE CREA UN ELEMENTO Y SE MUESTRA EL TURNO CONSULTADO
+    if (turnoEncontrado) {
+        let paciente = formularios.find(paciente =>paciente.apellido===consultaTurno);
+        let contenedorMensaje = document.getElementById("contenedorMensaje");
+    
+        let div = document.createElement("div");
+        div.innerHTML = `
+        <h2 class="titulo">Estimad@ ${paciente.nombre}</h2>
+        <li class="mensaje">Su turno es el dia: ${paciente.date}</li>
+        <li class="mensaje">En la Modalidad: ${paciente.sesion}</li>
+        <li class="mensaje">En el horario: ${paciente.horario}</li>
+        <li class="mensaje">Confirmado en el ${paciente.email}</li>
+        `;
+        contenedorMensaje.append(div);
+    
+//CONTENEDOR CON BOTON PARA REMOVER ITEM 
+        let contenedorCancelar = document.getElementById("contenedorCancelar");
+        
+    
+        let divCancelar = document.createElement("divCancelar");
+        divCancelar.innerHTML = `
+        <label for="cancelar">Cancele su turno !</label>
+        <input type="submit" id="botonElimina" class="btnContacto" value="Cancelar">
+        `;
+        contenedorCancelar.append(divCancelar);
+        let botonElimina = document.getElementById("botonElimina");
+        setInterval("location.reload()",10000);
+//BOTON PARA REMOVER ITEM Y MOSTRAR UN MENSAJE 
+
+        botonElimina.addEventListener("click", () => {
+            consultaTurno = document.getElementById("apellido")?.value;
+            formularios = [];
+            turnoPactado = localStorage.getItem("formularios");
+            if(turnoPactado){
+                formularios =  JSON.parse(turnoPactado);
+                console.log("entramos2");}
+                turnoEncontrado =  formularios.findIndex((turno)=>turno.apellido ===consultaTurno);
+            if (turnoEncontrado !==-1){
+                Swal.fire({
+                    title: 'Estas seguro que, quiere cancelar tu turno ?',
+                    text: "Si el turno, es menos de 24hs, se solicitara el abono del mismo!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, quiero cancelarlo!',
+                    
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                    formularios.splice(turnoEncontrado, 1);
+                    console.log("ELIMINADO",formularios);
+                    localStorage.setItem("formularios", JSON.stringify(formularios))
+                    Swal.fire(
+                        'Cancelado!',
+                        'Esperamos poder volver a brindarle, otro turno, en el futuro!.',
+                        'success',
+                        
+                        
+                    )
+                    setInterval("location.reload()",2000);
+                    }
+                })
+                console.log(formularios);
+                
+                ;
+                }});
+
+            else{
+                    fetch("../JS/pacientes.json")
+                    .then((response) => response.json())
+                    .then((pacientes) => {
+                        let paciente = pacientes.find((paciente) => paciente.apellido === consultaTurno);
+                        if (paciente) {
+                        let contenedorMensaje = document.getElementById("contenedorMensaje");
+                
+                        let div = document.createElement("div");
+                        div.innerHTML = `
+                            <h2 class="titulo">Estimad@ ${paciente.nombre}</h2>
+                            <li class="mensaje">Su turno es el día: ${paciente.date}</li>
+                            <li class="mensaje">En la Modalidad: ${paciente.sesion}</li>
+                            <li class="mensaje">En el horario: ${paciente.horario}</li>
+                            <li class="mensaje">Confirmado en el ${paciente.email}</li>
+                        `;
+                        contenedorMensaje.append(div);
+                        setInterval("location.reload()", 10000);
+                        } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'No está cargado ese turno, enviamos un mensaje en nuestra seccion de contacto y a la brevedad lo solucionaremos!',
+                            footer: '<a  class="elseTurno" href="./sesion.html">Solicita tu turno nuevamente!</a>'
+                        });
+                        setInterval("location.reload()", 3000);
+                        }
+                    });
+                }
+                }
+                });
+    
+
+//BUSCA TURNO EN JSON CON PROMESA 

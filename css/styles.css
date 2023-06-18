@@ -306,24 +306,6 @@ body {
   animation: wave_green 10s linear infinite;
 }
 
-.titulo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Dancing Script", cursive;
-  font-size: 5rem;
-  font-weight: 1000;
-}
-
-.mensaje {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-  font-weight: 500;
-  top: 2rem;
-}
-
 @keyframes wave {
   0% {
     background-position-x: 0;

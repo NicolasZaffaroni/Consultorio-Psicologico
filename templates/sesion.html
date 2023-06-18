@@ -69,48 +69,51 @@
                 </div>
             </nav>
         </div>
-        <H1 class="titulo">Sesion</H1>
-        <div id="contenedor"></div>
-            <section >
-                <div class="listaSesion">
+            <section class="containerForm" >
+                <div class="infoForm">
+                    <h2>Solicite su sesion</h2>
                     <ul >
                         <br>
-                        <li><label for="name">Nombre</label></li>
-                        <li><input class="Contacto" type="text"id="name"name="name" placeholder="Nicolas" required  ></li>
-                        <br>
-                        <li><label for="apellido">Apellido</label></li>
-                        <li><input class="Contacto" type="text"   name="apellido" id="apellido" placeholder="Gonzales" required  ></li>
-                        <br>     
-                        <li><label for="date">Dia</label></li>
-                        <select id="date">
-                            <option value="Lunes" >Lunes</option>
-                            <option value="Martes" >Martes</option>
-                            <option value="Miercoles" >Miercoles</option>
-                            <option value="Jueves" >Jueves</option>
-                            <option value="Viernes" >Viernes</option>
-                        </select>
-                        <br>
-                        <li><label for="horario">Selecciona una hora (sin minutos)</label></li>
-                        <li><input class="input" type="time" name="horario" id="horario"
-                        step="3600" min="14:00" max="20:00" value="14:00" ></li>
-                        <br>
-                        <li><label for="sesion">Selecciona el modo que desees </label></li>
-                        <select id="sesion">
-                            <option value="Presencial" >Presencial</option>
-                            <option value="Online" >Online</option>
-                        </select>
-                        <br>
-                        <br>
-                        <br>
-                        <li><label for="email">Direccion de correo</label></li>
-                        <li><input class="Contacto" type="email" name="email" id="email" placeholder="nicolas@gmail.com"  required ></li>
-                        <li><input class="Contacto" type="button" id="confirmar" value="Confirmar" ></li>
+                        <form action="https://formsubmit.co/5c52f4c66e4768eab4b9d3a1e79b57cc" method="POST" class="infoForm">
+                            <li><label for="name">Nombre</label></li>
+                            <li><input class="Contacto" type="text"id="name"name="name" placeholder="Nicolas" required  ></li>
+                            <br>
+                            <li><label for="apellido">Apellido</label></li>
+                            <li><input class="Contacto" type="text"   name="apellido" id="apellido" placeholder="Gonzales" required  ></li>
+                            <br>     
+                            <li><label for="date">Dia</label></li>
+                            <select id="date">
+                                <option value="Lunes" >Lunes</option>
+                                <option value="Martes" >Martes</option>
+                                <option value="Miercoles" >Miercoles</option>
+                                <option value="Jueves" >Jueves</option>
+                                <option value="Viernes" >Viernes</option>
+                            </select>
+                            <br>
+                            <li><label for="horario">Selecciona una hora (sin minutos)</label></li>
+                            <li><input class="input" type="time" name="horario" id="horario"
+                            step="3600" min="14:00" max="20:00" value="14:00" ></li>
+                            <br>
+                            <li><label for="sesion">Selecciona el modo que desees </label></li>
+                            <select id="sesion">
+                                <option value="Presencial" >Presencial</option>
+                                <option value="Online" >Online</option>
+                            </select>
+                            <br>
+                            <br>
+                            <br>
+                            <li><label for="email">Direccion de correo</label></li>
+                            <li><input class="Contacto" type="email" name="email" id="email" placeholder="nicolas@gmail.com"  required ></li>
+                            <br>
+                            <li><input class="btnContacto" type="button" id="confirmar" value="Confirmar" ></li>
                         
                     </ul>
-                    </form>
+                </form>
                 </div>
             </section>
-
+            <br>
+            <br>
+            <br>
             <footer>
                 <ul class="footerMenucontainer">
                 <li  ><a href="./sesion.html"  class="menuItem">Sesion</a></li>
