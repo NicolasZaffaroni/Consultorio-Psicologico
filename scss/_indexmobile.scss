@@ -317,4 +317,36 @@
     }
     
     
+    .headingAbout{
+        padding: 0px 20px;
+    }
+    .headingAbout h2{
+        font-size: 36px;
+    }
+    .headingAbout p{
+        font-size: 17px;
+        margin-bottom: 0px;
+    }
+
+    .containerAbout{
+        padding: 0px;
+    }
+    .about{
+        padding: 20px;
+        flex-direction: column;
+    }
+    .aboutImagen{
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+
+    .aboutContent p{
+        padding: 0px;
+        font-stretch: 16px;
+    }
+    
+    .aboutContent .readMore{
+        font-size: 16px;
+    }
+
 }

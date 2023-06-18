@@ -73,14 +73,13 @@
         <div id="contenedor"></div>
             <section >
                 <div class="listaSesion">
-                    <form action="">
                     <ul >
                         <br>
                         <li><label for="name">Nombre</label></li>
-                        <li><input class="input" type="text"id="name" name="name" required></li>
+                        <li><input class="Contacto" type="text"id="name"name="name" placeholder="Nicolas" required  ></li>
                         <br>
                         <li><label for="apellido">Apellido</label></li>
-                        <li><input class="input" type="text" name="apellido" id="apellido" required></li>
+                        <li><input class="Contacto" type="text"   name="apellido" id="apellido" placeholder="Gonzales" required  ></li>
                         <br>     
                         <li><label for="date">Dia</label></li>
                         <select id="date">
@@ -93,7 +92,7 @@
                         <br>
                         <li><label for="horario">Selecciona una hora (sin minutos)</label></li>
                         <li><input class="input" type="time" name="horario" id="horario"
-                        step="3600" min="14:00" max="20:00" value="14:00" required></li>
+                        step="3600" min="14:00" max="20:00" value="14:00" ></li>
                         <br>
                         <li><label for="sesion">Selecciona el modo que desees </label></li>
                         <select id="sesion">
@@ -104,14 +103,24 @@
                         <br>
                         <br>
                         <li><label for="email">Direccion de correo</label></li>
-                        <li><input class="input" type="email" name="email" id="email" required></li>
-                        <br>
-                        <br>
-                        <li><input class="input" type="button" id="confirmar" value="Confirmar" ></li>
+                        <li><input class="Contacto" type="email" name="email" id="email" placeholder="nicolas@gmail.com"  required ></li>
+                        <li><input class="Contacto" type="button" id="confirmar" value="Confirmar" ></li>
                         
                     </ul>
+                    </form>
                 </div>
             </section>
+
+            <footer>
+                <ul class="footerMenucontainer">
+                <li  ><a href="./sesion.html"  class="menuItem">Sesion</a></li>
+                <li ><a href="./turnos.html " class="menuItem">Consulta tu turno</a></li>
+                <li ><a href="./talleres.html" class="menuItem" >Talleres</a></li>
+                <li ><a href="./aboutus.html" class="menuItem" >About us</a></li>
+                <li ><a href="./contacto.html" class="menuItem">Contacto</a></li>
+                </ul>
+                <span class="copyrigth">&copy;2023,Espacio Fibra. Todos los derechos reservados.</span>
+            </footer>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdn.jsdelivr.net/npm/luxon@2.3.0/build/global/luxon.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

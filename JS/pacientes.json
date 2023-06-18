@@ -1,0 +1,9 @@
+
+[
+    {"nombre":"Jose","apellido":"Joselin","date":"Lunes","horario":"14","sesion":"Presencial","email":"JJoselin@gmail.com"},
+    {"nombre":"Leo","apellido":"Messi","date":"Martes","horario":"15","sesion":"Online","email":"LeoMEssi@gmail.com"},
+    {"nombre":"Diego","apellido":"Maradona","date":"Miercoles","horario":"16","sesion":"Presencial","email":"el10@gmail.com"},
+    {"nombre":"Juan Roman","apellido":"Riquelme","date":"Jueves","horario":"20","sesion":"Presencial","email":"JRRiquelme@gmail.com"},
+    {"nombre":"German","apellido":"Beder","date":"Viernes","horario":"17","sesion":"Online","email":"gbeder@gmail.com"}
+
+]

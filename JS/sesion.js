@@ -39,7 +39,7 @@ let formularioNuevo = {
 formularios.push(formularioNuevo);
 
 localStorage.setItem("formularios", JSON.stringify(formularios));
-    localStorage.setItem("formularioNuevo", JSON.stringify(formularioNuevo));
+localStorage.setItem("formularioNuevo", JSON.stringify(formularioNuevo));
     
     if(document.getElementById("sesion").value=="Presencial"||"Online"){
         Swal.fire({

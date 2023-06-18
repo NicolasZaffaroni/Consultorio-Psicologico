@@ -1,4 +1,4 @@
-.input {
+/*.input {
     max-width: 200px;
     min-height: 40px;
     padding: 10px;
@@ -16,6 +16,82 @@
     background: #e8e8e8;
     box-shadow: inset 5px 5px 17px #c8c8c8,
             inset -5px -5px 17px #ffffff;
+}*/
+
+
+.containerForm{
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap:50px;
+    margin-top: 90px;
+}
+
+.containerForm h2{
+    margin-bottom: 15px;
+    font-size: 35px;
+    font-weight: 1000;
 }
 
 
+.containerForm p{
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 36px;
+}
+
+
+
+.containerForm a{
+    font-size: 17px;
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+    margin-bottom: 15px;
+    color: #000;
+    font-weight: 700;
+
+}
+
+.containerForm a i{
+    color:  #666;
+    margin-right: 16px;
+}
+
+
+.containerForm form .Contacto , textarea{
+    width: 100%;
+    padding: 15px 10px ;
+    font-size: 15px;
+    border: 3px solid #666;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    outline: 0px;
+}
+
+
+.containerForm form textarea{
+    max-width: 536px;
+    min-width: 536px;
+    min-height: 146px;
+    max-height: 156px;
+}
+.containerForm .btnContacto{
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    outline: 0px;
+    background: #666;
+    color: #ffffff;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 300ns ease;
+}
+
+.containerForm .btnContacto:hover{
+    background-color: aquamarine;
+
+
+}
