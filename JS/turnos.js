@@ -38,7 +38,7 @@ botonConsulta.addEventListener("click", () => {
     `;
     contenedorCancelar.append(divCancelar);
     let botonElimina = document.getElementById("botonElimina");
-    setInterval("location.reload()", 5000);
+    setInterval("location.reload()", 10000);
 //SE ELIMINA EL TURNO DEL LOCALSTORAGE 
     botonElimina.addEventListener("click", () => {
         consultaTurno = document.getElementById("apellido")?.value;
@@ -68,7 +68,7 @@ botonConsulta.addEventListener("click", () => {
                                 'Cancelado!',
                                 'Esperamos poder volver a brindarle, otro turno, en el futuro!.',
                                 'success',)
-                                setInterval("location.reload()",3000)  }});// SE CIERRAN LOS IF PRA ELIMINAR TURNO DE LOCALSTORAGE
+                                setInterval("location.reload()",10000)  }});// SE CIERRAN LOS IF PRA ELIMINAR TURNO DE LOCALSTORAGE
                         }else {
                             Swal.fire({
                                 icon: 'error',
@@ -76,7 +76,7 @@ botonConsulta.addEventListener("click", () => {
                                 text: 'No está cargado ese turno, enviamos un mensaje, en nuestra seccion de contacto y  a la brevedad lo solucionaremos!',
                                 footer: '<a href="./sesion.html">Solicita tu turno nuevamente!</a>'
                             })
-                            setInterval("location.reload()",5000);}
+                            setInterval("location.reload()",10000);}
                             }
                     });
     //MUESTRA EL TURNO EN "SERVIDOR" CARGADO PREVIAMENTE MEDIANTE UNA PROMESA
@@ -97,7 +97,7 @@ botonConsulta.addEventListener("click", () => {
             <li class="mensaje">Confirmado en el ${paciente.email}</li>
             `;
             contenedorMensaje.append(div);
-            setInterval("location.reload()", 5000);
+            setInterval("location.reload()", 10000);
         } else {
             Swal.fire({
             icon: 'error',
@@ -105,7 +105,7 @@ botonConsulta.addEventListener("click", () => {
             text: 'No está cargado ese turno, enviamos un mensaje en nuestra seccion de contacto y a la brevedad lo solucionaremos!',
             footer: '<a  class="elseTurno" href="./sesion.html">Solicita tu turno nuevamente!</a>'
             });
-            setInterval("location.reload()", 3000);
+            setInterval("location.reload()", 10000);
         }
         });
     }
